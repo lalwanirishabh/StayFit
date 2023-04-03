@@ -11,6 +11,7 @@
 		B95398C029DB3C75005A71BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398BF29DB3C75005A71BF /* ContentView.swift */; };
 		B95398C229DB3C77005A71BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95398C129DB3C77005A71BF /* Assets.xcassets */; };
 		B95398C529DB3C77005A71BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95398C429DB3C77005A71BF /* Preview Assets.xcassets */; };
+		B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398CE29DB3E9B005A71BF /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B95398BF29DB3C75005A71BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B95398C129DB3C77005A71BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B95398C429DB3C77005A71BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B95398CE29DB3E9B005A71BF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,7 @@
 		B95398BC29DB3C75005A71BF /* StayFit */ = {
 			isa = PBXGroup;
 			children = (
-				B95398BD29DB3C75005A71BF /* StayFitApp.swift */,
-				B95398BF29DB3C75005A71BF /* ContentView.swift */,
+				B95398CB29DB3E42005A71BF /* Views */,
 				B95398C129DB3C77005A71BF /* Assets.xcassets */,
 				B95398C329DB3C77005A71BF /* Preview Content */,
 			);
@@ -65,6 +66,32 @@
 				B95398C429DB3C77005A71BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B95398CB29DB3E42005A71BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B95398CD29DB3E58005A71BF /* Screens */,
+				B95398CC29DB3E4E005A71BF /* SubViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B95398CC29DB3E4E005A71BF /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B95398CD29DB3E58005A71BF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B95398BD29DB3C75005A71BF /* StayFitApp.swift */,
+				B95398BF29DB3C75005A71BF /* ContentView.swift */,
+				B95398CE29DB3E9B005A71BF /* SignUpView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B95398C029DB3C75005A71BF /* ContentView.swift in Sources */,
+				B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */,
 				B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
