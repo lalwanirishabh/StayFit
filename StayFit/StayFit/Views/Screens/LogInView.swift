@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  LogInView.swift
 //  StayFit
 //
 //  Created by Rishabh Lalwani on 03/04/23.
@@ -8,26 +8,17 @@
 import SwiftUI
 import Firebase
 
-
-
-struct SignUpView: View {
+struct LogInView: View {
+    
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var username: String = ""
     @State private var navigateToAddDetailsView = false
+
     
     var body: some View {
         
         
-        
         VStack {
-            
-//            TextField("Username", text: $username)
-//                            .padding()
-//                            .background(Color(.secondarySystemBackground))
-//                            .cornerRadius(10)
-//                            .padding(.horizontal)
-            
             
             TextField("Email", text: $email)
                             .padding()
@@ -42,9 +33,9 @@ struct SignUpView: View {
                 .padding(.horizontal)
             
             Button(action: {
-                           registerUser()
+                           loginUser()
                        }) {
-            Text("Sign Up")
+            Text("Log In")
                 .foregroundColor(.white)
                 .font(.headline)
                 .padding()
@@ -53,39 +44,24 @@ struct SignUpView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                        }
-                
-            
-            NavigationLink(destination: LogInView()) {
-                                Text("Already have an account. Click Here")
-                            }
-            .padding()
-        }
-        .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
-            AddDetailsView()
-        })
-        
-        
-        
-        
-    }
-    
-    func registerUser(){
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!)
-            }
-            else{
-                navigateToAddDetailsView.toggle()
-                                }
-            }
         }
     }
     
+    func loginUser(){
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e)
+            }else{
+                SignUpView()
+            }
+        }
+    }
+}
 
-
-struct SignUpView_Previews: PreviewProvider {
+struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        LogInView()
             .preferredColorScheme(.dark)
     }
 }

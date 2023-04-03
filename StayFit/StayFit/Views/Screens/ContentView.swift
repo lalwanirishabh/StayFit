@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var navigateToAddDetailsView = false
+    
     var body: some View {
         TabView {
             NavigationView {
@@ -35,7 +38,8 @@ struct ContentView: View {
                 }
             
             NavigationView {
-                SignUpView()
+                
+                    SignUpView()
             }
                 .tabItem {
                     Image(systemName: "book.fill")
