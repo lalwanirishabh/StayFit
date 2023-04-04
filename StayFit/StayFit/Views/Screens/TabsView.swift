@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseDatabase
+import FirebaseCore
+import FirebaseAuth
 
 struct TabsView: View {
+    
+    @EnvironmentObject var userData : ViewModel
+    
     var body: some View {
         TabView {
             NavigationView {
-                // main screen
+                HomeView()
             }
                 .tabItem {
                     Image(systemName: "house.circle")
@@ -27,23 +34,24 @@ struct TabsView: View {
                 }
             
             NavigationView {
-                // main screen
+                BrowseView()
             }
                 .tabItem {
                     Image(systemName: "line.3.horizontal")
-                    Text("Feed")
+                    Text("Browse")
                 }
             
             NavigationView {
-                    
-                    SignUpView()
+                    ProfileView()
             }
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
-                    Text("Profile")
+                    Text("profile")
                 }
         }
+        
     }
+
 }
 
 struct TabsView_Previews: PreviewProvider {

@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Firebase
+import FirebaseDatabase
+import FirebaseCore
+import FirebaseAuth
 
 struct LogInView: View {
     
@@ -16,6 +19,7 @@ struct LogInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var navigateToAddDetailsView = false
+    @State private var navigateToSignUpView = false
 
     
     var body: some View {
@@ -47,9 +51,27 @@ struct LogInView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                        }
+            
+            Button(action: {
+                navigateToSignUpView.toggle()
+                       }) {
+            Text("Dont have an account. Click here")
+                .foregroundColor(.white)
+                .font(.headline)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(10)
+                .padding(.horizontal)
+                       }
+            
+            
         }
         .fullScreenCover(isPresented: $navigateToTabsView, content: {
-            AddDetailsView()
+            TabsView()
+        })
+        .fullScreenCover(isPresented: $navigateToSignUpView, content: {
+            SignUpView()
         })
     }
     
@@ -59,9 +81,28 @@ struct LogInView: View {
             if let e = error {
                 print(e)
             }else{
+                retrieveData()
                 navigateToTabsView.toggle()
             }
         }
+    }
+    
+    func retrieveData(){
+        
+        if let user = Auth.auth().currentUser {
+            let uid = user.uid
+            let ref = Database.database().reference()
+            ref.child("users/\(uid)/username").observeSingleEvent(of: .value, with: { snapshot in
+                                if let value = snapshot.value as? String {
+                                    // If the retrieved data is a string, update the @State variable
+                                    
+                                    userData.username = value
+                                }
+                            })
+        }
+    
+        
+        
     }
 }
 

@@ -21,6 +21,7 @@ struct SignUpView: View {
     @State private var password: String = ""
     @State var username: String = ""
     @State private var navigateToAddDetailsView = false
+    @State private var navigateToLogInView = false
     
     var body: some View {
         
@@ -61,13 +62,24 @@ struct SignUpView: View {
                        }
                 
             
-            NavigationLink(destination: LogInView()) {
-                                Text("Already have an account. Click Here")
-                            }
-            .padding()
+            Button(action: {
+                navigateToLogInView.toggle()
+                       }) {
+            Text("Already have an account. Click here")
+                .foregroundColor(.white)
+                .font(.headline)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(10)
+                .padding(.horizontal)
+                       }
         }
         .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
             AddDetailsView()
+        })
+        .fullScreenCover(isPresented: $navigateToLogInView, content: {
+            LogInView()
         })
         
         

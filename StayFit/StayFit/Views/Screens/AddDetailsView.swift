@@ -16,12 +16,13 @@ struct AddDetailsView: View {
         
         @EnvironmentObject var userData : ViewModel
         @State private var name: String = ""
+        @State private var gender: String = ""
         @State private var dateOfBirth: Date = Date()
         @State private var weight: Double = 0.0
         @State private var height: Double = 0.0
         @State private var image: UIImage?
         @State private var showImagePicker = false
-        @State private var navigateToTestView = false
+        @State private var navigateToTabsView = false
         let storage = Storage.storage()
     
         let dateFormatter = DateFormatter()
@@ -41,6 +42,9 @@ struct AddDetailsView: View {
             }
             
                     TextField("Name", text: $name)
+                        .padding()
+            
+                    TextField("Gender", text: $gender)
                         .padding()
                     
                     DatePicker("Date of Birth", selection: $dateOfBirth, displayedComponents: .date)
@@ -74,6 +78,7 @@ struct AddDetailsView: View {
                         userData.weight = weight
                         userData.height = height
                         userData.image = image
+                        userData.gender = gender
                         
                         if let imageData = image?.jpegData(compressionQuality: 0.5) {
                                             let storageRef = storage.reference()
@@ -102,6 +107,7 @@ struct AddDetailsView: View {
                             let usermodel = ["weight": weight ,
                                          "height": height ,
                                          "name": name ,
+                                             "gender": gender ,
                                              "image" : "\(userData.username).jpg" ,
                                              "dob" : dateFormatter.string(from: dateOfBirth)
                         
@@ -114,7 +120,7 @@ struct AddDetailsView: View {
 //                            ref.setValue(userdob)
                         
                             
-                        navigateToTestView.toggle()
+                        navigateToTabsView.toggle()
                         
                         
                             
@@ -133,8 +139,8 @@ struct AddDetailsView: View {
                         }
                     
                 }
-        .fullScreenCover(isPresented: $navigateToTestView, content: {
-            TestView()
+        .fullScreenCover(isPresented: $navigateToTabsView, content: {
+            TabsView()
         })
                 
     }
