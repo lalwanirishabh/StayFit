@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseSwift
 import UIKit
 
 struct AddDetailsView: View {
-    
-    @State private var name: String = ""
+        
+        @ObservedObject var viewModel = ViewModel()
+        @State private var name: String = ""
         @State private var dateOfBirth: Date = Date()
         @State private var weight: Double = 0.0
         @State private var height: Double = 0.0
         @State private var image: UIImage?
         @State private var showImagePicker = false
+    
+        let dateFormatter = DateFormatter()
     
 
     var body: some View {
@@ -55,10 +61,59 @@ struct AddDetailsView: View {
                     .sheet(isPresented: $showImagePicker) {
                                     ImagePicker(image: self.$image, isShown: self.$showImagePicker)
                                 }
+            
+                    Button(action: {
+                        
+                        viewModel.name = name
+                        viewModel.dob = dateOfBirth
+                        viewModel.weight = weight
+                        viewModel.height = height
+                        viewModel.image = image
+                        
+                            // push the data to the Firebase Realtime Database
+                        let uid = "https://stayfit-64a79-default-rtdb.firebaseio.com/"
+                            let ref = Database.database().reference()
+                            let userRef = ref.child("users")
+                            let newUserRef = userRef.child("username")
+                        
+                            let userweight = ["weight": weight]
+                            ref.setValue(userweight)
+                        
+                            let userheight = ["height": height]
+                            ref.setValue(userheight)
+                        
+                            let userFullName = ["name": name]
+                            ref.setValue(userFullName)
+                        
+                            let userdob = ["dob": dateFormatter.string(from: dateOfBirth)]
+                            ref.setValue(userdob)
+                        
+                            
+                        
+                        
+                            
+                        
+                            
+                                
+                        }) {
+                            Text("Continue")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                                .padding(.horizontal)
+                        }
                     
                 }
-                .navigationBarTitle("User Info")
+                
     }
+    
+    init() {
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+        }
 }
 
 struct AddDetailsView_Previews: PreviewProvider {

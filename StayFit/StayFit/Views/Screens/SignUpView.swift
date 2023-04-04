@@ -7,13 +7,19 @@
 
 import SwiftUI
 import Firebase
+import FirebaseDatabase
+import FirebaseDatabaseSwift
+
 
 
 
 struct SignUpView: View {
+    
+    @ObservedObject var viewModel = ViewModel()
+    
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var username: String = ""
+    @State var username: String = ""
     @State private var navigateToAddDetailsView = false
     
     var body: some View {
@@ -22,11 +28,11 @@ struct SignUpView: View {
         
         VStack {
             
-//            TextField("Username", text: $username)
-//                            .padding()
-//                            .background(Color(.secondarySystemBackground))
-//                            .cornerRadius(10)
-//                            .padding(.horizontal)
+            TextField("Username", text: $username)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
             
             
             TextField("Email", text: $email)
@@ -75,11 +81,22 @@ struct SignUpView: View {
                 print(error!)
             }
             else{
+                viewModel.username = username
+                
+                
+                guard let uid = result?.user.uid else { return }
+                let ref = Database.database().reference()
+                let userRef = ref.child("users").child(uid)
+                let userData = ["username": username]
+                userRef.setValue(userData)
                 navigateToAddDetailsView.toggle()
-                                }
+                 }
             }
         }
-    }
+    
+    
+}
+
     
 
 
