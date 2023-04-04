@@ -6,10 +6,25 @@
 //
 
 import SwiftUI
+import WebKit
+
+struct WebView: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        uiView.load(request)
+    }
+}
 
 struct BrowseView: View {
     
     @EnvironmentObject var userData : ViewModel
+    
     
     var body: some View {
         List {
@@ -19,13 +34,13 @@ struct BrowseView: View {
             NavigationLink(destination: BMIView(height: userData.height, weight: userData.weight)) {
                             Text("BMI")
                         }
-                        NavigationLink(destination: ProfileView()) {
+                        NavigationLink(destination: ExerciseRoutineView()) {
                             Text("Exercise Routine")
                         }
-                        NavigationLink(destination: ProfileView()) {
+                        NavigationLink(destination: RecipesView()) {
                             Text("Recipes")
                         }
-                        NavigationLink(destination: ProfileView()) {
+                        NavigationLink(destination: WebView(url: URL(string: "https://www.google.com")!)) {
                             Text("Book an Appointment")
                         }
                     }

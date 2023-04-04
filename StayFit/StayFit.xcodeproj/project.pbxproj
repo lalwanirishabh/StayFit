@@ -38,6 +38,8 @@
 		B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991329DC8F07005A71BF /* SelectMeditationView.swift */; };
 		B953991629DC9391005A71BF /* CircleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991529DC9391005A71BF /* CircleGroupView.swift */; };
 		B953991829DC965C005A71BF /* BMIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991729DC965C005A71BF /* BMIView.swift */; };
+		B953991A29DC9C9C005A71BF /* ExerciseRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */; };
+		B953991C29DC9CD0005A71BF /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991B29DC9CD0005A71BF /* RecipesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		B953991329DC8F07005A71BF /* SelectMeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMeditationView.swift; sourceTree = "<group>"; };
 		B953991529DC9391005A71BF /* CircleGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGroupView.swift; sourceTree = "<group>"; };
 		B953991729DC965C005A71BF /* BMIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIView.swift; sourceTree = "<group>"; };
+		B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRoutineView.swift; sourceTree = "<group>"; };
+		B953991B29DC9CD0005A71BF /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				B953991329DC8F07005A71BF /* SelectMeditationView.swift */,
 				B953990B29DC8D19005A71BF /* MeditationView.swift */,
 				B953991729DC965C005A71BF /* BMIView.swift */,
+				B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */,
+				B953991B29DC9CD0005A71BF /* RecipesView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -276,7 +282,9 @@
 				B953990029DC161D005A71BF /* ProfileView.swift in Sources */,
 				B95398F629DBCE53005A71BF /* TestView.swift in Sources */,
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,
+				B953991C29DC9CD0005A71BF /* RecipesView.swift in Sources */,
 				B953990A29DC4C13005A71BF /* BrowseView.swift in Sources */,
+				B953991A29DC9C9C005A71BF /* ExerciseRoutineView.swift in Sources */,
 				B95398C029DB3C75005A71BF /* ContentView.swift in Sources */,
 				B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */,
 				B95398FE29DBFEB6005A71BF /* TabsView.swift in Sources */,
