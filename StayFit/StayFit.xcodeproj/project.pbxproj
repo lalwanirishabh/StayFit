@@ -37,6 +37,7 @@
 		B953991229DC8DE5005A71BF /* med2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B953990F29DC8DE5005A71BF /* med2.mp3 */; };
 		B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991329DC8F07005A71BF /* SelectMeditationView.swift */; };
 		B953991629DC9391005A71BF /* CircleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991529DC9391005A71BF /* CircleGroupView.swift */; };
+		B953991829DC965C005A71BF /* BMIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991729DC965C005A71BF /* BMIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		B953990F29DC8DE5005A71BF /* med2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = med2.mp3; sourceTree = "<group>"; };
 		B953991329DC8F07005A71BF /* SelectMeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMeditationView.swift; sourceTree = "<group>"; };
 		B953991529DC9391005A71BF /* CircleGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGroupView.swift; sourceTree = "<group>"; };
+		B953991729DC965C005A71BF /* BMIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				B953990929DC4C13005A71BF /* BrowseView.swift */,
 				B953991329DC8F07005A71BF /* SelectMeditationView.swift */,
 				B953990B29DC8D19005A71BF /* MeditationView.swift */,
+				B953991729DC965C005A71BF /* BMIView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				B95398D829DB48EC005A71BF /* LogInView.swift in Sources */,
 				B95398E429DB709D005A71BF /* ViewModel.swift in Sources */,
 				B95398E829DBBAD9005A71BF /* HealthStore.swift in Sources */,
+				B953991829DC965C005A71BF /* BMIView.swift in Sources */,
 				B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */,
 				B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */,
 			);

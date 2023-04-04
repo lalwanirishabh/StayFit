@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct BrowseView: View {
+    
+    @EnvironmentObject var userData : ViewModel
+    
     var body: some View {
         List {
                         NavigationLink(destination: SelectMeditationView()) {
                             Text("Meditation")
                         }
-                        NavigationLink(destination: ProfileView()) {
+            NavigationLink(destination: BMIView(height: userData.height, weight: userData.weight)) {
                             Text("BMI")
                         }
                         NavigationLink(destination: ProfileView()) {
