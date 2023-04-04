@@ -157,10 +157,6 @@ struct HomeView: View {
             }
             .padding()
             
-            HStack {
-                CardView(title: "Minutes", value: "15 min")
-            }
-            .padding()
             
             
         }

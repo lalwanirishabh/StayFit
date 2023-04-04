@@ -18,6 +18,7 @@ struct ProfileView: View {
     
     
     @EnvironmentObject var userData : ViewModel
+    @State private var navigateToSignUpView = false
 
     
     var body: some View {
@@ -32,8 +33,56 @@ struct ProfileView: View {
             Text(userData.name)
                         .font(.title)
                         .padding()
+            
+            Button(action: {
+//                let ref = Database.database().reference()
+//                let userRef = ref.child("users")
+//            let newUserRef = userRef.child(userData.username)
+//
+//                let usermodel = ["steps": userData.Steps ,
+//                                 "distance": userData.distance ,
+//                                 "calories": userData.calories
+//                                ] as [String : Any]
+//                newUserRef.setValue(usermodel)
+            }) {
+                Text("Send today's data to cloud")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            
+            Button(action: {
+                
+                userData.username = ""
+                userData.name = ""
+                userData.weight = 0.0
+                userData.height = 0.0
+                userData.image = UIImage()
+                userData.dob = Date()
+                userData.gender = ""
+                userData.email = ""
+                userData.Steps = 0
+                userData.distance = 0.0
+                userData.calories = 0
+                
+                navigateToSignUpView.toggle()
+                
+            }) {
+                Text("LogOut")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.red)
+                    .cornerRadius(10)
+            }
+            
                 }
         .onAppear(perform: retrieveData)
+        .fullScreenCover(isPresented: $navigateToSignUpView, content: {
+            SignUpView()
+        })
+        
+        
     }
     
     func retrieveData(){
