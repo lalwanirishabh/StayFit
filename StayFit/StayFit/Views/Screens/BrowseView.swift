@@ -10,7 +10,7 @@ import SwiftUI
 struct BrowseView: View {
     var body: some View {
         List {
-                        NavigationLink(destination: ProfileView()) {
+                        NavigationLink(destination: SelectMeditationView()) {
                             Text("Meditation")
                         }
                         NavigationLink(destination: ProfileView()) {
