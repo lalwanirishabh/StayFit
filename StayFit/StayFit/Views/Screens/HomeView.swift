@@ -15,7 +15,7 @@ struct HomeView: View {
     @EnvironmentObject var userData : ViewModel
     
     private var healthStore : HealthStore?
-
+    let calorieStore = HKHealthStore()
     
     @State private var steps: [Step] = [Step]()
     
@@ -36,6 +36,32 @@ struct HomeView: View {
             userData.Steps = step.count
         }
         
+    }
+    
+    func fetchCalories(){
+        let calendar = Calendar.current
+        let now = Date()
+        let startOfDay = calendar.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        
+        let energyBurnedType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!
+        calorieStore.requestAuthorization(toShare: nil, read: [energyBurnedType]) { success, error in
+            // Handle the authorization result here.
+        }
+        
+        let query = HKStatisticsQuery(quantityType: energyBurnedType, quantitySamplePredicate: predicate, options: .cumulativeSum) { query, result, error in
+            guard let result = result, let sum = result.sumQuantity() else {
+                // Handle the error here.
+                return
+            }
+            
+            let calories = Int(sum.doubleValue(for: HKUnit.kilocalorie()))
+            print("calories = \(calories)")
+            userData.calories = calories
+            // Use the calories value here.
+        }
+
+        calorieStore.execute(query)
     }
     
     
@@ -100,7 +126,7 @@ struct HomeView: View {
             
             HStack {
                 CardView(title: "Distance", value: "distance km")
-                CardView(title: "Calories", value: "120 kcal")
+                CardView(title: "Calories", value: "\(userData.calories) kcal")
             }
             .padding()
             
@@ -120,12 +146,17 @@ struct HomeView: View {
                             if let statisticsCollection = statisticsCollection {
                                 // update the UI
                                 updateUIFromStatistics(statisticsCollection)
+                                fetchCalories()
                             }
                         }
                     }
                 }
+                
+                
             }
+            
         }
+        
     }
     
     

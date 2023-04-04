@@ -20,6 +20,7 @@ class ViewModel : ObservableObject {
     @Published var email: String = ""
     @Published var Steps: Int = 0
     @Published var distance: Double = 0.0
+    @Published var calories: Int = 0
     
 
     
