@@ -8,14 +8,4 @@
 import Foundation
 import UIKit
 
-//struct UserModel : Identifiable, Hashable{
-//    
-//    
-//    var id: ObjectIdentifier
-//    var name: String
-//    var age: Int
-//    var weight: Double
-//    var height: Double
-//    var image: UIImage?
-//    
-//}
+

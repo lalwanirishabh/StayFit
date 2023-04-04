@@ -15,7 +15,7 @@ import FirebaseDatabaseSwift
 
 struct SignUpView: View {
     
-    @ObservedObject var viewModel = ViewModel()
+    @EnvironmentObject var userData : ViewModel
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -81,7 +81,7 @@ struct SignUpView: View {
                 print(error!)
             }
             else{
-                viewModel.username = username
+                userData.username = username
                 
                 
                 guard let uid = result?.user.uid else { return }

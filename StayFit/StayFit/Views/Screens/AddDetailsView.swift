@@ -9,17 +9,20 @@ import SwiftUI
 import Firebase
 import FirebaseDatabase
 import FirebaseDatabaseSwift
+import FirebaseStorage
 import UIKit
 
 struct AddDetailsView: View {
         
-        @ObservedObject var viewModel = ViewModel()
+        @EnvironmentObject var userData : ViewModel
         @State private var name: String = ""
         @State private var dateOfBirth: Date = Date()
         @State private var weight: Double = 0.0
         @State private var height: Double = 0.0
         @State private var image: UIImage?
         @State private var showImagePicker = false
+        @State private var navigateToTestView = false
+        let storage = Storage.storage()
     
         let dateFormatter = DateFormatter()
     
@@ -64,31 +67,54 @@ struct AddDetailsView: View {
             
                     Button(action: {
                         
-                        viewModel.name = name
-                        viewModel.dob = dateOfBirth
-                        viewModel.weight = weight
-                        viewModel.height = height
-                        viewModel.image = image
+                        print(userData.username)
+                        
+                        userData.name = name
+                        userData.dob = dateOfBirth
+                        userData.weight = weight
+                        userData.height = height
+                        userData.image = image
+                        
+                        if let imageData = image?.jpegData(compressionQuality: 0.5) {
+                                            let storageRef = storage.reference()
+                                            let imagesRef = storageRef.child("images")
+                            let imageRef = imagesRef.child("\(userData.username).jpg")
+                                            let metadata = StorageMetadata()
+                                            metadata.contentType = "image/jpeg"
+                                            imageRef.putData(imageData, metadata: metadata) { metadata, error in
+                                                if let error = error {
+                                                    print("Error uploading image: \(error.localizedDescription)")
+                                                } else {
+                                                    print("Image uploaded successfully!")
+                                                }
+                                            }
+                                        }
+                        
+                        
+                        
                         
                             // push the data to the Firebase Realtime Database
-                        let uid = "https://stayfit-64a79-default-rtdb.firebaseio.com/"
+//                        let uid = "https://stayfit-64a79-default-rtdb.firebaseio.com/"
                             let ref = Database.database().reference()
                             let userRef = ref.child("users")
-                            let newUserRef = userRef.child("username")
+                        let newUserRef = userRef.child(userData.username)
                         
-                            let userweight = ["weight": weight]
-                            ref.setValue(userweight)
+                            let usermodel = ["weight": weight ,
+                                         "height": height ,
+                                         "name": name ,
+                                             "image" : "\(userData.username).jpg" ,
+                                             "dob" : dateFormatter.string(from: dateOfBirth)
                         
-                            let userheight = ["height": height]
-                            ref.setValue(userheight)
+                            ] as [String : Any]
+                            newUserRef.setValue(usermodel)
+//
+                            
                         
-                            let userFullName = ["name": name]
-                            ref.setValue(userFullName)
-                        
-                            let userdob = ["dob": dateFormatter.string(from: dateOfBirth)]
-                            ref.setValue(userdob)
+//                            let userdob = ["dob": dateFormatter.string(from: dateOfBirth)]
+//                            ref.setValue(userdob)
                         
                             
+                        navigateToTestView.toggle()
                         
                         
                             
@@ -107,6 +133,9 @@ struct AddDetailsView: View {
                         }
                     
                 }
+        .fullScreenCover(isPresented: $navigateToTestView, content: {
+            TestView()
+        })
                 
     }
     

@@ -16,10 +16,12 @@ struct StayFitApp: App {
         FirebaseApp.configure()
     }
     
+    let userData = ViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userData)
         }
     }
     
