@@ -16,6 +16,7 @@ struct HomeView: View {
     
     private var healthStore : HealthStore?
     let calorieStore = HKHealthStore()
+    let distanceStore = HKHealthStore()
     
     @State private var steps: [Step] = [Step]()
     
@@ -63,6 +64,32 @@ struct HomeView: View {
 
         calorieStore.execute(query)
     }
+    
+    func fetchDistance(){
+            let calendar = Calendar.current
+            let now = Date()
+            let startOfDay = calendar.startOfDay(for: now)
+            let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+            
+            let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+            distanceStore.requestAuthorization(toShare: nil, read: [distanceType]) { success, error in
+                // Handle the authorization result here.
+            }
+
+            let query = HKStatisticsQuery(quantityType: distanceType, quantitySamplePredicate: predicate, options: .cumulativeSum) { query, result, error in
+                guard let result = result, let sum = result.sumQuantity() else {
+                    // Handle the error here.
+                    return
+                }
+                
+                let distanceInMeters = sum.doubleValue(for: HKUnit.meter())
+                let distanceInKilometers = distanceInMeters / 1000.0
+                print("Distance = \(distanceInKilometers)")
+                userData.distance = distanceInKilometers
+            }
+
+            distanceStore.execute(query)
+        }
     
     
     var body: some View {
@@ -125,7 +152,7 @@ struct HomeView: View {
             
             
             HStack {
-                CardView(title: "Distance", value: "distance km")
+                CardView(title: "Distance", value: "\(userData.distance) km")
                 CardView(title: "Calories", value: "\(userData.calories) kcal")
             }
             .padding()
@@ -147,6 +174,7 @@ struct HomeView: View {
                                 // update the UI
                                 updateUIFromStatistics(statisticsCollection)
                                 fetchCalories()
+                                fetchDistance()
                             }
                         }
                     }
