@@ -10,6 +10,9 @@ import Firebase
 
 struct LogInView: View {
     
+    @EnvironmentObject var userData : ViewModel
+    
+    @State private var navigateToTabsView = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var navigateToAddDetailsView = false
@@ -45,6 +48,9 @@ struct LogInView: View {
                 .padding(.horizontal)
                        }
         }
+        .fullScreenCover(isPresented: $navigateToTabsView, content: {
+            AddDetailsView()
+        })
     }
     
     func loginUser(){
@@ -53,7 +59,7 @@ struct LogInView: View {
             if let e = error {
                 print(e)
             }else{
-                SignUpView()
+                navigateToTabsView.toggle()
             }
         }
     }

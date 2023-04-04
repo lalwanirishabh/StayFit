@@ -27,6 +27,7 @@
 		B95398F629DBCE53005A71BF /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398F529DBCE53005A71BF /* TestView.swift */; };
 		B95398F829DBE853005A71BF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F729DBE853005A71BF /* FirebaseStorage */; };
 		B95398FA29DBE854005A71BF /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F929DBE854005A71BF /* FirebaseStorageCombine-Community */; };
+		B95398FE29DBFEB6005A71BF /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398FD29DBFEB6005A71BF /* TabsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		B95398ED29DBC278005A71BF /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B95398EF29DBC2AD005A71BF /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		B95398F529DBCE53005A71BF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		B95398FD29DBFEB6005A71BF /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				B95398BF29DB3C75005A71BF /* ContentView.swift */,
 				B95398CE29DB3E9B005A71BF /* SignUpView.swift */,
 				B95398D729DB48EC005A71BF /* LogInView.swift */,
+				B95398FD29DBFEB6005A71BF /* TabsView.swift */,
 				B95398D929DB52C8005A71BF /* AddDetailsView.swift */,
 				B95398E529DB90B2005A71BF /* MainView.swift */,
 				B95398F529DBCE53005A71BF /* TestView.swift */,
@@ -237,6 +240,7 @@
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,
 				B95398C029DB3C75005A71BF /* ContentView.swift in Sources */,
 				B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */,
+				B95398FE29DBFEB6005A71BF /* TabsView.swift in Sources */,
 				B95398EE29DBC278005A71BF /* GraphView.swift in Sources */,
 				B95398D829DB48EC005A71BF /* LogInView.swift in Sources */,
 				B95398E429DB709D005A71BF /* ViewModel.swift in Sources */,

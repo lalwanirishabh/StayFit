@@ -9,43 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var userData : ViewModel
     @State private var navigateToAddDetailsView = false
     
     var body: some View {
-        TabView {
-            NavigationView {
-                // main screen
-            }
-                .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Feed")
-                }
-            
-            NavigationView {
-                // main screen
-            }
-                .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Feed")
-                }
-            
-            NavigationView {
-                // main screen
-            }
-                .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Feed")
-                }
-            
-            NavigationView {
-                
-                    SignUpView()
-            }
-                .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Profile")
-                }
-        }
+        SignUpView()
     }
 }
 
