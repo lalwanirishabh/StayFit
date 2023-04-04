@@ -19,6 +19,15 @@ struct ProfileView: View {
     
     @EnvironmentObject var userData : ViewModel
     @State private var navigateToSignUpView = false
+    let today = Date()
+    
+    func datetoString(today : Date) -> String{
+        let dateFormatter = DateFormatter()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyy"
+        let dateString = formatter.string(from: today)
+        return dateString
+    }
 
     
     var body: some View {
@@ -35,15 +44,16 @@ struct ProfileView: View {
                         .padding()
             
             Button(action: {
-//                let ref = Database.database().reference()
-//                let userRef = ref.child("users")
-//            let newUserRef = userRef.child(userData.username)
-//
-//                let usermodel = ["steps": userData.Steps ,
-//                                 "distance": userData.distance ,
-//                                 "calories": userData.calories
-//                                ] as [String : Any]
-//                newUserRef.setValue(usermodel)
+                let ref = Database.database().reference()
+                let userRef = ref.child("users")
+                let newUserRef = userRef.child("\(userData.username)\(datetoString(today: today))")
+
+                let usermodel = ["steps": userData.Steps ,
+                                 "distance": userData.distance ,
+                                 "calories": userData.calories
+                                ] as [String : Any]
+                newUserRef.setValue(usermodel)
+                
             }) {
                 Text("Send today's data to cloud")
                     .foregroundColor(.white)
@@ -148,7 +158,7 @@ struct ProfileView: View {
                                 if let value = snapshot.value as? String {
                                     // If the retrieved data is a string, update the @State variable
                                     
-                                    guard let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/stayfit-64a79.appspot.com/o/images%2FUser56.jpg?alt=media&token=ad2e7e16-ae6e-4191-9e42-3528d97da981") else {
+                                    guard let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/stayfit-64a79.appspot.com/o/images%2FUser70.jpg?alt=media&token=f9eeeadb-aa6a-4057-9cd1-58a58df89490") else {
                                                 return
                                             }
                                     
