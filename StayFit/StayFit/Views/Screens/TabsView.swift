@@ -26,7 +26,7 @@ struct TabsView: View {
                 }
             
             NavigationView {
-                // main screen
+                FeedView()
             }
                 .tabItem {
                     Image(systemName: "book.fill")

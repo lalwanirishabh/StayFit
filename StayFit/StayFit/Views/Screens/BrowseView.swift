@@ -31,13 +31,13 @@ struct BrowseView: View {
                         NavigationLink(destination: SelectMeditationView()) {
                             Text("Meditation")
                         }
-            NavigationLink(destination: BMIView(height: userData.height, weight: userData.weight)) {
+                    NavigationLink(destination: BMIView(height: userData.height, weight: userData.weight)) {
                             Text("BMI")
                         }
                         NavigationLink(destination: ExerciseRoutineView()) {
                             Text("Exercise Routine")
                         }
-                        NavigationLink(destination: RecipesView()) {
+                        NavigationLink(destination: WebView(url: URL(string: "https://www.eatingwell.com/recipes/18045/weight-loss-diet/")!)) {
                             Text("Recipes")
                         }
                         NavigationLink(destination: WebView(url: URL(string: "https://www.google.com")!)) {
