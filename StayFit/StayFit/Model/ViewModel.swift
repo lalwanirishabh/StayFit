@@ -22,6 +22,8 @@ class ViewModel : ObservableObject {
     @Published var distance: Double = 0.0
     @Published var calories: Int = 0
     @Published var imageUrl : String = ""
+    @Published var isUserLoggedIn: Bool = false
+    
     
 
     

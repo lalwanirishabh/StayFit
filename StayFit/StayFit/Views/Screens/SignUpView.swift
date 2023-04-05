@@ -95,6 +95,7 @@ struct SignUpView: View {
             else{
                 userData.username = username
                 userData.email = email
+                userData.isUserLoggedIn = true
                 
                 guard let uid = result?.user.uid else { return }
                 let ref = Database.database().reference()

@@ -42,6 +42,7 @@
 		B953991C29DC9CD0005A71BF /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991B29DC9CD0005A71BF /* RecipesView.swift */; };
 		B953991E29DD45B3005A71BF /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991D29DD45B2005A71BF /* FeedView.swift */; };
 		B953992029DD476B005A71BF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991F29DD476B005A71BF /* PostView.swift */; };
+		B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		B953991B29DC9CD0005A71BF /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		B953991D29DD45B2005A71BF /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		B953991F29DD476B005A71BF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMeasurments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */,
 				B953991B29DC9CD0005A71BF /* RecipesView.swift */,
 				B953991D29DD45B2005A71BF /* FeedView.swift */,
+				B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B95398F029DBC2AD005A71BF /* Step.swift in Sources */,
 				B953990229DC191E005A71BF /* HomeView.swift in Sources */,
 				B953990C29DC8D19005A71BF /* MeditationView.swift in Sources */,
+				B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */,
 				B953990029DC161D005A71BF /* ProfileView.swift in Sources */,
 				B95398F629DBCE53005A71BF /* TestView.swift in Sources */,
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,

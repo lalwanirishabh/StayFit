@@ -24,6 +24,7 @@ struct TabsView: View {
                     Image(systemName: "house.circle")
                     Text("Feed")
                 }
+                
             
             NavigationView {
                 FeedView()
@@ -32,6 +33,7 @@ struct TabsView: View {
                     Image(systemName: "book.fill")
                     Text("Feed")
                 }
+                
             
             NavigationView {
                 BrowseView()
@@ -40,6 +42,7 @@ struct TabsView: View {
                     Image(systemName: "line.3.horizontal")
                     Text("Browse")
                 }
+                
             
             NavigationView {
                     ProfileView()
@@ -48,6 +51,7 @@ struct TabsView: View {
                     Image(systemName: "person.crop.circle.fill")
                     Text("profile")
                 }
+                
         }
         
     }

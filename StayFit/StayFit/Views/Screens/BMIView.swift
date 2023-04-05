@@ -40,7 +40,7 @@ struct BMIView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
-                    AddDetailsView()
+                    ChangeMeasurmentsView()
                 })
         
     }

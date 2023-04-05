@@ -93,18 +93,109 @@ struct LogInView: View {
             let uid = user.uid
             let ref = Database.database().reference()
             ref.child("users/\(uid)/username").observeSingleEvent(of: .value, with: { snapshot in
-                                if let value = snapshot.value as? String {
-                                    // If the retrieved data is a string, update the @State variable
-                                    
-                                    userData.username = value
-                                }
-                            })
+                if let value = snapshot.value as? String {
+                    // If the retrieved data is a string, update the @State variable
+                    
+                    userData.username = value
+                    retrieveData2()
+                }
+            })
         }
-    
+    }
+        
+        func retrieveData2(){
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/name").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? String {
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.name = value
+                        print(userData.name)
+                    }
+                })
+            }
+            
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/gender").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? String {
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.gender = value
+                        print(userData.gender)
+                    }
+                })
+            }
+            
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/weight").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? Double {
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.weight = value
+                        print(userData.weight)
+                    }
+                })
+                
+            }
+            
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/height").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? Double {
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.height = value
+                        print(userData.height)
+                    }
+                })
+                
+            }
+            
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/imageUrl").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? String{
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.imageUrl = value
+                        print(userData.imageUrl)
+                        guard let url = URL(string: "\(value)") else {
+                            return
+                        }
+                        
+                        URLSession.shared.dataTask(with: url) { (data, response, error) in
+                            if let error = error {
+                                print("Error downloading image: \(error.localizedDescription)")
+                                return
+                            }
+                            
+                            guard let data = data else {
+                                print("Error: no data returned from server")
+                                return
+                            }
+                            
+                            DispatchQueue.main.async {
+                                userData.image = UIImage(data: data)
+                                print("Hello")
+                            }
+                        }.resume()
+                    }
+                })
+            }
+        }
         
         
     }
-}
+
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
