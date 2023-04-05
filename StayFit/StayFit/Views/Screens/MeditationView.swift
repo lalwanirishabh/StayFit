@@ -10,8 +10,15 @@ import AVFoundation
 
 struct MeditationView: View {
     
+    @State var hours: String = ""
+    @State var minutes: String = ""
+    @State var seconds: String = ""
+    @State var totalSeconds: Int = 0
+    
     let med: String
     @State private var isAnimating: Bool = false
+    
+    
     
     var body: some View {
         
@@ -39,8 +46,31 @@ struct MeditationView: View {
                     )
             }
             
+            HStack {
+                        TextField("Hours", text: $hours)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.numberPad)
+                            .frame(width: 50)
+                        TextField("Minutes", text: $minutes)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.numberPad)
+                            .frame(width: 50)
+                        TextField("Seconds", text: $seconds)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.numberPad)
+                            .frame(width: 50)
+                    }
+                    .padding()
+            
             HStack(spacing: 20) {
                 Button(action: {
+                    totalSeconds += ((Int(hours) ?? 0)*60*60)
+                    totalSeconds += ((Int(minutes) ?? 0)*60)
+                    totalSeconds += ((Int(seconds) ?? 0))
+                    audioPlayer.play()
+                    hours = ""
+                    minutes = ""
+                    seconds = ""
                     audioPlayer.play()
                 }) {
                     HStack {
@@ -82,23 +112,6 @@ struct MeditationView: View {
       })
     }
     
-//    var body: some View {
-//        let audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: med, ofType: "mp3")!))
-//
-//        VStack {
-//                    Button(action: {
-//                        audioPlayer.play()
-//                    }) {
-//                        Image(systemName: "play.fill")
-//                    }
-//
-//                    Button(action: {
-//                        audioPlayer.pause()
-//                    }) {
-//                        Image(systemName: "pause.fill")
-//                    }
-//                }
-//    }
 }
 
 struct MeditationView_Previews: PreviewProvider {

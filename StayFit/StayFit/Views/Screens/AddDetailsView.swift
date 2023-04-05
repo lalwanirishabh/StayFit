@@ -27,6 +27,14 @@ struct AddDetailsView: View {
     
         let dateFormatter = DateFormatter()
     
+    func datetoString(today : Date) -> String{
+        let dateFormatter = DateFormatter()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyyy"
+        let dateString = formatter.string(from: today)
+        return dateString
+    }
+    
 
     var body: some View {
         VStack {
@@ -90,16 +98,21 @@ struct AddDetailsView: View {
                                                 if let error = error {
                                                     print("Error uploading image: \(error.localizedDescription)")
                                                 } else {
+                                                    imageRef.downloadURL { (url, error) in
+                                                            guard let downloadURL = url else { return }
+                                                            let imageUrl = downloadURL.absoluteString
+                                                        print("\(imageUrl)")
+                                                        userData.imageUrl = String(imageUrl)
+                                                        print(userData.imageUrl)
+                                                        sendData()
+                                                        }
                                                     print("Image uploaded successfully!")
+                                                    
                                                 }
                                             }
                                         }
                         
-                        
-                        
-                        
-                            // push the data to the Firebase Realtime Database
-//                        let uid = "https://stayfit-64a79-default-rtdb.firebaseio.com/"
+                        func sendData(){
                             let ref = Database.database().reference()
                             let userRef = ref.child("users")
                         let newUserRef = userRef.child(userData.username)
@@ -108,17 +121,18 @@ struct AddDetailsView: View {
                                          "height": height ,
                                          "name": name ,
                                              "gender": gender ,
-                                             "image" : "\(userData.username).jpg" ,
-                                             "dob" : dateFormatter.string(from: dateOfBirth)
+                                             "imageUrl" : userData.imageUrl ,
+                                             "dob" : Int(datetoString(today: userData.dob))! ,
+                                            "email" : userData.email,
+                                             "username" : userData.username
+                                             
                         
                             ] as [String : Any]
                             newUserRef.setValue(usermodel)
-//
+                        }
+                        
                             
-                        
-//                            let userdob = ["dob": dateFormatter.string(from: dateOfBirth)]
-//                            ref.setValue(userdob)
-                        
+
                             
                         navigateToTabsView.toggle()
                         

@@ -21,7 +21,7 @@ struct ProfileView: View {
     @State private var navigateToSignUpView = false
     let today = Date()
     
-    func datetoString(today : Date) -> String{
+    func datetoString(date : Date) -> String{
         let dateFormatter = DateFormatter()
         let formatter = DateFormatter()
         formatter.dateFormat = "ddMMyyyy"
@@ -41,12 +41,18 @@ struct ProfileView: View {
                     
             Text(userData.name)
                         .font(.title)
-                        .padding()
+                        .padding(.top)
+            
+            Text("@\(userData.username)")
+                        .font(.title3)
+            
+            Text(userData.email)
+                        .font(.title3)
             
             Button(action: {
                 let ref = Database.database().reference()
                 let userRef = ref.child("users")
-                let newUserRef = userRef.child("\(userData.username)\(datetoString(today: today))")
+                let newUserRef = userRef.child("\(userData.username)\(datetoString(date: today))")
 
                 let usermodel = ["steps": userData.Steps ,
                                  "distance": userData.distance ,
@@ -154,11 +160,13 @@ struct ProfileView: View {
             let uid = user.uid
             
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/image").observeSingleEvent(of: .value, with: { snapshot in
-                                if let value = snapshot.value as? String {
+            ref.child("users/\(userData.username)/imageUrl").observeSingleEvent(of: .value, with: { snapshot in
+                if let value = snapshot.value as? String{
                                     // If the retrieved data is a string, update the @State variable
                                     
-                                    guard let url = URL(string: "https://firebasestorage.googleapis.com/v0/b/stayfit-64a79.appspot.com/o/images%2FUser70.jpg?alt=media&token=f9eeeadb-aa6a-4057-9cd1-58a58df89490") else {
+                                    userData.imageUrl = value
+                    print(userData.imageUrl)
+                                    guard let url = URL(string: "\(value)") else {
                                                 return
                                             }
                                     
