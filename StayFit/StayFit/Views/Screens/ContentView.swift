@@ -17,7 +17,7 @@ struct ContentView: View {
         {
             SignUpView()
         }else{
-            ProfileView()
+            ProfileView2(name: userData.name, username: userData.username, email: userData.email, image: userData.image!)
         }
     }
 }

@@ -43,6 +43,8 @@
 		B953992029DD476B005A71BF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991F29DD476B005A71BF /* PostView.swift */; };
 		B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */; };
 		B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A229DDCF280023D8CC /* ProfileView2.swift */; };
+		B9DB14A929DDE5370023D8CC /* DoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A829DDE5370023D8CC /* DoctorsView.swift */; };
+		B9DB14AB29DDEC900023D8CC /* DoctorSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		B953991F29DD476B005A71BF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMeasurments.swift; sourceTree = "<group>"; };
 		B9DB14A229DDCF280023D8CC /* ProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView2.swift; sourceTree = "<group>"; };
+		B9DB14A829DDE5370023D8CC /* DoctorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsView.swift; sourceTree = "<group>"; };
+		B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSubView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 			children = (
 				B953991529DC9391005A71BF /* CircleGroupView.swift */,
 				B953991F29DD476B005A71BF /* PostView.swift */,
+				B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				B953991B29DC9CD0005A71BF /* RecipesView.swift */,
 				B953991D29DD45B2005A71BF /* FeedView.swift */,
 				B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */,
+				B9DB14A829DDE5370023D8CC /* DoctorsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 				B953990C29DC8D19005A71BF /* MeditationView.swift in Sources */,
 				B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */,
 				B95398F629DBCE53005A71BF /* TestView.swift in Sources */,
+				B9DB14AB29DDEC900023D8CC /* DoctorSubView.swift in Sources */,
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,
 				B953992029DD476B005A71BF /* PostView.swift in Sources */,
 				B953991C29DC9CD0005A71BF /* RecipesView.swift in Sources */,
@@ -306,6 +313,7 @@
 				B953991829DC965C005A71BF /* BMIView.swift in Sources */,
 				B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */,
 				B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */,
+				B9DB14A929DDE5370023D8CC /* DoctorsView.swift in Sources */,
 				B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

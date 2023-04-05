@@ -14,9 +14,15 @@ struct MeditationView: View {
     @State var minutes: String = ""
     @State var seconds: String = ""
     @State var totalSeconds: Int = 0
+    @State var countDownTimer: Int = 2
+    @State var timerRunning = false
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let med: String
     @State private var isAnimating: Bool = false
+    
+    
     
     
     
@@ -62,6 +68,15 @@ struct MeditationView: View {
                     }
                     .padding()
             
+            Text("\(countDownTimer)")
+                .onReceive(timer){ _ in
+                    if countDownTimer > 0 && timerRunning{
+                        countDownTimer -= 1
+                    }else{
+                        timerRunning = false
+                    }
+                }
+            
             HStack(spacing: 20) {
                 Button(action: {
                     totalSeconds += ((Int(hours) ?? 0)*60*60)
@@ -72,6 +87,10 @@ struct MeditationView: View {
                     minutes = ""
                     seconds = ""
                     audioPlayer.play()
+                    timerRunning = true
+                    Timer.scheduledTimer(withTimeInterval: TimeInterval(totalSeconds), repeats: false) { _ in
+                            // Code to execute when the timer is finished
+                        }
                 }) {
                     HStack {
                         Image(systemName: "play.fill")
@@ -117,5 +136,6 @@ struct MeditationView: View {
 struct MeditationView_Previews: PreviewProvider {
     static var previews: some View {
         MeditationView(med: "med1")
+            .preferredColorScheme(.dark)
     }
 }

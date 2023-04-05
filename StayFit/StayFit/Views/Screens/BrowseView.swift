@@ -40,7 +40,7 @@ struct BrowseView: View {
                         NavigationLink(destination: WebView(url: URL(string: "https://www.eatingwell.com/recipes/18045/weight-loss-diet/")!)) {
                             Text("Recipes")
                         }
-                        NavigationLink(destination: WebView(url: URL(string: "https://www.google.com")!)) {
+                        NavigationLink(destination: DoctorsView()) {
                             Text("Book an Appointment")
                         }
                     }
