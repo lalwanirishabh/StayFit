@@ -26,7 +26,6 @@
 		B95398F829DBE853005A71BF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F729DBE853005A71BF /* FirebaseStorage */; };
 		B95398FA29DBE854005A71BF /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F929DBE854005A71BF /* FirebaseStorageCombine-Community */; };
 		B95398FE29DBFEB6005A71BF /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398FD29DBFEB6005A71BF /* TabsView.swift */; };
-		B953990029DC161D005A71BF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398FF29DC161D005A71BF /* ProfileView.swift */; };
 		B953990229DC191E005A71BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953990129DC191E005A71BF /* HomeView.swift */; };
 		B953990629DC4392005A71BF /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B953990529DC4392005A71BF /* URLImage */; };
 		B953990829DC4392005A71BF /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = B953990729DC4392005A71BF /* URLImageStore */; };
@@ -43,6 +42,7 @@
 		B953991E29DD45B3005A71BF /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991D29DD45B2005A71BF /* FeedView.swift */; };
 		B953992029DD476B005A71BF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991F29DD476B005A71BF /* PostView.swift */; };
 		B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */; };
+		B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A229DDCF280023D8CC /* ProfileView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +60,6 @@
 		B95398EF29DBC2AD005A71BF /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		B95398F529DBCE53005A71BF /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B95398FD29DBFEB6005A71BF /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
-		B95398FF29DC161D005A71BF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B953990129DC191E005A71BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B953990329DC2D48005A71BF /* StayFit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StayFit.entitlements; sourceTree = "<group>"; };
 		B953990929DC4C13005A71BF /* BrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseView.swift; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		B953991D29DD45B2005A71BF /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		B953991F29DD476B005A71BF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMeasurments.swift; sourceTree = "<group>"; };
+		B9DB14A229DDCF280023D8CC /* ProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 				B95398FD29DBFEB6005A71BF /* TabsView.swift */,
 				B95398D929DB52C8005A71BF /* AddDetailsView.swift */,
 				B95398F529DBCE53005A71BF /* TestView.swift */,
-				B95398FF29DC161D005A71BF /* ProfileView.swift */,
+				B9DB14A229DDCF280023D8CC /* ProfileView2.swift */,
 				B953990129DC191E005A71BF /* HomeView.swift */,
 				B953990929DC4C13005A71BF /* BrowseView.swift */,
 				B953991329DC8F07005A71BF /* SelectMeditationView.swift */,
@@ -290,7 +290,6 @@
 				B953990229DC191E005A71BF /* HomeView.swift in Sources */,
 				B953990C29DC8D19005A71BF /* MeditationView.swift in Sources */,
 				B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */,
-				B953990029DC161D005A71BF /* ProfileView.swift in Sources */,
 				B95398F629DBCE53005A71BF /* TestView.swift in Sources */,
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,
 				B953992029DD476B005A71BF /* PostView.swift in Sources */,
@@ -306,6 +305,7 @@
 				B95398E829DBBAD9005A71BF /* HealthStore.swift in Sources */,
 				B953991829DC965C005A71BF /* BMIView.swift in Sources */,
 				B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */,
+				B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */,
 				B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

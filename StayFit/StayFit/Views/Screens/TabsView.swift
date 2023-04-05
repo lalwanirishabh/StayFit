@@ -45,7 +45,7 @@ struct TabsView: View {
                 
             
             NavigationView {
-                    ProfileView()
+                ProfileView2(name: userData.name, username: userData.username, email: userData.email, image: userData.image!)
             }
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
