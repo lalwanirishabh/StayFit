@@ -66,6 +66,7 @@ struct HomeView: View {
     }
     
     func fetchDistance(){
+        print("distance function")
             let calendar = Calendar.current
             let now = Date()
             let startOfDay = calendar.startOfDay(for: now)
@@ -94,34 +95,34 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
-            
-            GroupBox{
+            GroupBox {
                 HStack {
                     Image(uiImage: userData.image!)
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 100, height: 100)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                         .shadow(radius: 5)
                     
+                    Divider()
+                    
                     VStack(alignment: .leading) {
                         Text("Good morning")
                             .font(.title3)
-                        Text("Mr. \(userData.name)")
+                        Text(userData.name)
                             .font(.title)
                     }
                     
                     Spacer()
                 }
                 .padding()
+                .frame(height: 200)
+                
             }
+            .padding(.horizontal)
+            .cornerRadius(10)
             
-            
-            
-            
-            
-            
-            GroupBox{
+            GroupBox {
                 ZStack {
                     Circle()
                         .stroke(lineWidth: 10)
@@ -130,7 +131,7 @@ struct HomeView: View {
                         .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
                     
                     Circle()
-                        .trim(from: 0.0, to: CGFloat(min(self.progressValue, Double(userData.Steps)/5000.0)))
+                        .trim(from: 0.0, to: CGFloat(min(self.progressValue, Double(userData.Steps) / 5000.0)))
                         .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))
                         .foregroundColor(Color.green)
                         .rotationEffect(Angle(degrees: 270.0))
@@ -139,32 +140,29 @@ struct HomeView: View {
                     
                     VStack {
                         Text("\(userData.Steps)")
-                            .font(.title3)
-                        Text("\((Int(Double(userData.Steps)/5000.0) * 100))%")
                             .font(.title)
+                        Text("\(String(format: "%.2f", ((Double(userData.Steps) / 5000.0) * 100))) %")
+                            .font(.title3)
                     }
                 }
                 .padding()
                 .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
-                
-                
             }
+            .ignoresSafeArea()
+            .frame(maxWidth: .infinity)
             
-            
-            HStack {
-                CardView(title: "Distance", value: "\(userData.distance) km")
-                CardView(title: "Calories", value: "\(userData.calories) kcal")
+            GroupBox{
+                HStack {
+                    CardView(title: "Distance", value: "\(String(format: "%.2f", (userData.distance))) km")
+                    CardView(title: "Calories", value: "\(userData.calories) kcal")
+                }
+                .padding()
             }
-            .padding()
-            
-            
-            
         }
         .onAppear {
             if let healthStore = healthStore {
                 healthStore.requestAuthorization { success in
                     if success {
-                        
                         healthStore.calculateSteps { statisticsCollection in
                             if let statisticsCollection = statisticsCollection {
                                 // update the UI
@@ -175,13 +173,10 @@ struct HomeView: View {
                         }
                     }
                 }
-                
-                
             }
-            
         }
-        
     }
+
     
     
     
@@ -193,14 +188,11 @@ struct HomeView: View {
             VStack {
                 Text(title)
                     .font(.headline)
-                    .foregroundColor(.black)
-                Spacer()
+                Divider()
                 Text(value)
                     .font(.title)
-                    .foregroundColor(.black)
             }
             .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.width/2)
-            .background(Color.white)
             .cornerRadius(10)
             .shadow(radius: 5)
         }

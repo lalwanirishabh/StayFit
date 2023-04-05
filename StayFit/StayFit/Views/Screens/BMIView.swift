@@ -52,6 +52,7 @@ struct BMIView: View {
         }
         
         func getBMIStatus() -> String {
+            
             let bmi = calculateBMI()
             
             if bmi < 18.5 {
