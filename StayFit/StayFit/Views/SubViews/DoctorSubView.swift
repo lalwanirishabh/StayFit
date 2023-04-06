@@ -27,20 +27,20 @@ struct DoctorSubView: View {
                 VStack{
                     RemoteImage(url: (URL(string: doc1imageUrl) ?? URL(string : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcs.m.wikipedia.org%2Fwiki%2FSoubor%3AGoogle_Images_2015_logo.svg&psig=AOvVaw24Ullz-5spo_zxeYWCBy5P&ust=1680765300328000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNiNk-eYkv4CFQAAAAAdAAAAABAD"))!)
                 }
-                .frame(height: 190,  alignment: .top)
+                .frame(height: 220,  alignment: .top)
             
             
             //
             VStack {
                 
                 HStack{
-                    Text(doc1name)
+                    Text(" \(doc1name)")
                         .font(Font.custom("Helvetica", size: 20))
                     Spacer()
                 }
                 
                 HStack{
-                    Text("\(doc1speciality) | \(doc1experience) years exp")
+                    Text(" \(doc1speciality)")
                     Spacer()
                     
                 }
@@ -48,11 +48,19 @@ struct DoctorSubView: View {
                 Divider()
                 
                 HStack{
+                    Text("\(Image(systemName: "person.badge.clock.fill"))  \(doc1experience) years exp")
+                    Spacer()
+                    
+                }
+                .padding(.bottom , 1)
+                
+                HStack{
                     Text(" \(Image(systemName: "speaker.fill"))  \(doc1languages)")
                         .font(Font.custom("Helvetica", size: 15))
                     Spacer()
                     
                 }
+                .padding(.bottom , 1)
                 
                 HStack{
                     Text("\(Image(systemName: "graduationcap.fill")) \(doc1education)")

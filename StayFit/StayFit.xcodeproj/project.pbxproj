@@ -42,6 +42,7 @@
 		B953991E29DD45B3005A71BF /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991D29DD45B2005A71BF /* FeedView.swift */; };
 		B953992029DD476B005A71BF /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953991F29DD476B005A71BF /* PostView.swift */; };
 		B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */; };
+		B9D6DAD029DEE64A002A65F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D6DACF29DEE64A002A65F6 /* LaunchScreen.storyboard */; };
 		B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A229DDCF280023D8CC /* ProfileView2.swift */; };
 		B9DB14A929DDE5370023D8CC /* DoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A829DDE5370023D8CC /* DoctorsView.swift */; };
 		B9DB14AB29DDEC900023D8CC /* DoctorSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */; };
@@ -77,6 +78,7 @@
 		B953991D29DD45B2005A71BF /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		B953991F29DD476B005A71BF /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMeasurments.swift; sourceTree = "<group>"; };
+		B9D6DACF29DEE64A002A65F6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9DB14A229DDCF280023D8CC /* ProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView2.swift; sourceTree = "<group>"; };
 		B9DB14A829DDE5370023D8CC /* DoctorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsView.swift; sourceTree = "<group>"; };
 		B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSubView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				B95398E329DB709D005A71BF /* ViewModel.swift */,
 				B95398E729DBBAD9005A71BF /* HealthStore.swift */,
 				B95398EF29DBC2AD005A71BF /* Step.swift */,
+				B9D6DACF29DEE64A002A65F6 /* LaunchScreen.storyboard */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				B953991129DC8DE5005A71BF /* med1.mp3 in Resources */,
 				B953991229DC8DE5005A71BF /* med2.mp3 in Resources */,
 				B95398C229DB3C77005A71BF /* Assets.xcassets in Resources */,
+				B9D6DAD029DEE64A002A65F6 /* LaunchScreen.storyboard in Resources */,
 				B95398D629DB443F005A71BF /* GoogleService-Info.plist in Resources */,
 				B953991029DC8DE5005A71BF /* med3.mp3 in Resources */,
 			);
@@ -440,6 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = StayFit/StayFit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -452,6 +457,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -473,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = StayFit/StayFit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -485,6 +492,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -566,6 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = StayFit/StayFit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -578,6 +587,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

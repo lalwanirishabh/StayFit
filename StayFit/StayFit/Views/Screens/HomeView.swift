@@ -187,7 +187,9 @@ struct HomeView: View {
                     .padding()
                     .cornerRadius(10)
                 }
+                .cornerRadius(10)
             }
+            .cornerRadius(10)
             .onAppear {
                 if let healthStore = healthStore {
                     healthStore.requestAuthorization { success in
@@ -205,7 +207,6 @@ struct HomeView: View {
                 }
             }
         }
-        .padding(30)
     }
 
     
