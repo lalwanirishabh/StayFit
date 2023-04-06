@@ -24,16 +24,19 @@ struct DoctorSubView: View {
     var body: some View {
 
         HStack {
-            RemoteImage(url: (URL(string: doc1imageUrl) ?? URL(string : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcs.m.wikipedia.org%2Fwiki%2FSoubor%3AGoogle_Images_2015_logo.svg&psig=AOvVaw24Ullz-5spo_zxeYWCBy5P&ust=1680765300328000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNiNk-eYkv4CFQAAAAAdAAAAABAD"))!)
+                VStack{
+                    RemoteImage(url: (URL(string: doc1imageUrl) ?? URL(string : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcs.m.wikipedia.org%2Fwiki%2FSoubor%3AGoogle_Images_2015_logo.svg&psig=AOvVaw24Ullz-5spo_zxeYWCBy5P&ust=1680765300328000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNiNk-eYkv4CFQAAAAAdAAAAABAD"))!)
+                }
+                .frame(height: 190,  alignment: .top)
+            
             
             //
             VStack {
-                Divider()
+                
                 HStack{
                     Text(doc1name)
-                        .font(.title)
+                        .font(Font.custom("Helvetica", size: 20))
                     Spacer()
-                    Text("\(doc1rating) star")
                 }
                 
                 HStack{
@@ -42,29 +45,43 @@ struct DoctorSubView: View {
                     
                 }
                 
+                Divider()
+                
                 HStack{
-                    Text(doc1languages)
+                    Text(" \(Image(systemName: "speaker.fill"))  \(doc1languages)")
+                        .font(Font.custom("Helvetica", size: 15))
                     Spacer()
                     
                 }
                 
                 HStack{
-                    Text(doc1education)
+                    Text("\(Image(systemName: "graduationcap.fill")) \(doc1education)")
+                        .font(Font.custom("Helvetica", size: 15))
+                        .padding(.bottom)
                     Spacer()
                     
                 }
                 
                 HStack{
-                    Text(doc1availableDays)
+                    Text(" \(Image(systemName: "calendar")) \(doc1availableDays)")
+                        .font(Font.custom("Helvetica", size: 15))
                     Spacer()
                     
                 }
                 
                 HStack{
-                    Text(doc1availableTime)
+                    Text("  \(doc1availableTime)")
+                        .font(Font.custom("Helvetica", size: 9))
                     Spacer()
                     
                 }
+                
+                
+            }
+            
+            VStack{
+                
+                Text("\(doc1rating) \(Image(systemName: "star.fill"))")
                 
                 Button(action: {
                     
@@ -75,7 +92,6 @@ struct DoctorSubView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
-                
             }
         }
     }

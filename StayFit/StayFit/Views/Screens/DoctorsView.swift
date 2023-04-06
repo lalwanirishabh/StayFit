@@ -47,6 +47,12 @@ struct DoctorsView: View {
                 DoctorSubView(doc1availableDays: doc1availableDays, doc1availableTime: doc1availableTime, doc1education: doc1education, doc1email: doc1email, doc1experience: doc1experience, doc1imageUrl: doc1imageUrl, doc1languages: doc1languages, doc1name: doc1name, doc1rating: doc1rating, doc1speciality: doc1speciality, doc1username: doc1username)
             }
             
+            Divider()
+            
+            GroupBox{
+                DoctorSubView(doc1availableDays: doc2availableDays, doc1availableTime: doc2availableTime, doc1education: doc2education, doc1email: doc2email, doc1experience: doc2experience, doc1imageUrl: doc2imageUrl, doc1languages: doc2languages, doc1name: doc2name, doc1rating: doc2rating, doc1speciality: doc2speciality, doc1username: doc1username)
+            }
+            
         }
         .onAppear(perform: retrieveData)
     }
@@ -211,7 +217,7 @@ struct DoctorsView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("doctors/doc1/languages").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("doctors/doc1/languagesSpoken").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String {
                     // If the retrieved data is a string, update the @State variable
                     
@@ -224,7 +230,7 @@ struct DoctorsView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("doctors/doc2/languages").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("doctors/doc2/languagesSpoken").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String {
                     // If the retrieved data is a string, update the @State variable
                     
