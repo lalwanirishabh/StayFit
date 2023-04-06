@@ -23,6 +23,7 @@ class ViewModel : ObservableObject {
     @Published var calories: Int = 0
     @Published var imageUrl : String = ""
     @Published var isUserLoggedIn: Bool = false
+    @Published var dailyStepsTarget: Int = 5000
     
     
 

@@ -15,10 +15,10 @@ import FirebaseStorage
 struct ChangeMeasurmentsView: View {
     
     @State private var navigateToAddDetailsView = false
+    @EnvironmentObject var userData : ViewModel
     @State var weight: Double = 0 // initialize to 0
     @State var height: Double = 0 // initialize to 0
     
-    @EnvironmentObject var userData : ViewModel
     
     var body: some View {
         VStack {
@@ -29,36 +29,33 @@ struct ChangeMeasurmentsView: View {
                     HStack {
                         Text("Weight (kg):")
                             .padding(.trailing)
-                        Text(String(format: "%.1f", weight))
+                        Text(String(format: "%.0f", weight))
                             .font(.title)
                         Spacer()
-                        ScrollView(.horizontal, showsIndicators: false) {
+
                             Picker("", selection: $weight) {
                                 ForEach(0..<200) { index in
                                     Text("\(index)").tag(Double(index))
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
-                        }
-                        .frame(width: 150, height: 150)
+                            .frame(width: 150, height: 150)
                     }
                     .padding()
 
                     HStack {
                         Text("Height (cm):")
                             .padding(.trailing)
-                        Text(String(format: "%.1f", height))
+                        Text(String(format: "%.0f", height))
                             .font(.title)
                         Spacer()
-                        ScrollView(.horizontal, showsIndicators: false) {
                             Picker("", selection: $height) {
                                 ForEach(0..<300) { index in
                                     Text("\(index)").tag(Double(index))
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
-                        }
-                        .frame(width: 150, height: 150)
+                            .frame(width: 150, height: 150)
                     }
                     .padding()
 

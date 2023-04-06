@@ -180,7 +180,7 @@ struct FeedView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("blogs/blog1/imageurl").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("blogs/blog2/imageurl").observeSingleEvent(of: .value, with: { snapshot in
                                 if let value = snapshot.value as? String {
                                     // If the retrieved data is a string, update the @State variable
                                     
@@ -193,7 +193,7 @@ struct FeedView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("blogs/blog1/imageurl").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("blogs/blog3/imageurl").observeSingleEvent(of: .value, with: { snapshot in
                                 if let value = snapshot.value as? String {
                                     // If the retrieved data is a string, update the @State variable
                                     

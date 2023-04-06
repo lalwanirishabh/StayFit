@@ -112,7 +112,6 @@ struct LogInView: View {
                         // If the retrieved data is a string, update the @State variable
                         
                         userData.name = value
-                        print(userData.name)
                     }
                 })
             }
@@ -125,7 +124,6 @@ struct LogInView: View {
                         // If the retrieved data is a string, update the @State variable
                         
                         userData.gender = value
-                        print(userData.gender)
                     }
                 })
             }
@@ -138,7 +136,19 @@ struct LogInView: View {
                         // If the retrieved data is a string, update the @State variable
                         
                         userData.weight = value
-                        print(userData.weight)
+                    }
+                })
+                
+            }
+            
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let ref = Database.database().reference()
+                ref.child("users/\(userData.username)/dailyStepsTarget").observeSingleEvent(of: .value, with: { snapshot in
+                    if let value = snapshot.value as? Int {
+                        // If the retrieved data is a string, update the @State variable
+                        
+                        userData.dailyStepsTarget = value
                     }
                 })
                 

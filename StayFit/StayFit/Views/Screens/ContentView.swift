@@ -13,12 +13,8 @@ struct ContentView: View {
     @State private var navigateToAddDetailsView = false
     
     var body: some View {
-        if userData.isUserLoggedIn == false
-        {
+        
             SignUpView()
-        }else{
-            ProfileView2(name: userData.name, username: userData.username, email: userData.email, image: userData.image!)
-        }
     }
 }
 

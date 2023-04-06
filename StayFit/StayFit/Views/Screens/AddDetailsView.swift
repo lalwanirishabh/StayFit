@@ -18,8 +18,9 @@ struct AddDetailsView: View {
         @State private var name: String = ""
         @State private var gender: String = ""
         @State private var dateOfBirth: Date = Date()
-        @State private var weight: Double = 0.0
-        @State private var height: Double = 0.0
+        @State private var weight: Double = 75.0
+        @State private var height: Double = 170.0
+        @State private var dailyStepsTarget: Int = 50
         @State private var image: UIImage?
         @State private var showImagePicker = false
         @State private var navigateToTabsView = false
@@ -50,21 +51,75 @@ struct AddDetailsView: View {
             }
             
                     TextField("Name", text: $name)
-                        .padding()
-            
+                    .padding()
                     TextField("Gender", text: $gender)
-                        .padding()
+                .padding(.horizontal)
                     
                     DatePicker("Date of Birth", selection: $dateOfBirth, displayedComponents: .date)
-                        .padding()
-                    
-                    TextField("Weight", value: $weight, formatter: NumberFormatter())
-                        .padding()
-                        
-                    
-                    TextField("Height", value: $height, formatter: NumberFormatter())
-                        .padding()
+                    .padding(.horizontal)
             
+                    HStack {
+                        Text("Weight (kg):")
+                            .padding(.trailing)
+                        Text(String(format: "%.0f", weight))
+                            .font(.title)
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                            Picker("", selection: $weight) {
+                                ForEach(0..<200) { index in
+                                    Text("\(index)").tag(Double(index))
+                                }
+                            }
+                            .pickerStyle(WheelPickerStyle())
+                        .frame(width: 100, height: 80)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+            
+                HStack {
+                    Text("Height (cm):")
+                        .padding(.trailing)
+                    Text(String(format: "%.0f", height))
+                        .font(.title)
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                        Picker("", selection: $height) {
+                            ForEach(0..<200) { index in
+                                Text("\(index)").tag(Double(index))
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    
+                    .frame(width: 100, height: 80)
+                    Spacer()
+                }
+                .padding(.horizontal)
+            
+            HStack {
+                Text("Daily Steps Target")
+                    .padding(.trailing)
+                Text(String(format: "%.0f", dailyStepsTarget))
+                    .font(.title)
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Picker("", selection: $dailyStepsTarget) {
+                    ForEach(1...250, id: \.self) { index in
+                        let value = index * 100
+                        Text("\(value)").tag(Double(value))
+                    }
+                }
+                    .pickerStyle(WheelPickerStyle())
+                .frame(width: 100, height: 80)
+                Spacer()
+            }
+            .padding(.horizontal)
+                    
             
                     
                     Button(action: {
@@ -87,6 +142,7 @@ struct AddDetailsView: View {
                         userData.height = height
                         userData.image = image
                         userData.gender = gender
+                        userData.dailyStepsTarget = dailyStepsTarget*100
                         
                         if let imageData = image?.jpegData(compressionQuality: 0.5) {
                                             let storageRef = storage.reference()
@@ -124,7 +180,8 @@ struct AddDetailsView: View {
                                              "imageUrl" : userData.imageUrl ,
                                              "dob" : Int(datetoString(today: userData.dob))! ,
                                             "email" : userData.email,
-                                             "username" : userData.username
+                                             "username" : userData.username,
+                                             "dailyStepsTarget" : userData.dailyStepsTarget
                                              
                         
                             ] as [String : Any]
@@ -168,6 +225,7 @@ struct AddDetailsView: View {
 struct AddDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         AddDetailsView()
+            .preferredColorScheme(.dark)
     }
 }
 

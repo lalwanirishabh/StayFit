@@ -28,6 +28,8 @@ struct ProfileView2: View {
     var body: some View {
         VStack{
             
+            Spacer()
+            
             Image(uiImage : image)
                         .resizable()
                         .frame(width: 100, height: 100)
@@ -42,27 +44,7 @@ struct ProfileView2: View {
             Text("@\(username)")
                         .font(.title2)
             
-            Text(email)
-                        .font(.title3)
-            
-            Button(action: {
-                let ref = Database.database().reference()
-                let userRef = ref.child("users")
-                let newUserRef = userRef.child("\(userData.username)\(datetoString(date: today))")
-
-                let usermodel = ["steps": userData.Steps ,
-                                 "distance": userData.distance ,
-                                 "calories": userData.calories
-                                ] as [String : Any]
-                newUserRef.setValue(usermodel)
-                
-            }) {
-                Text("Send today's data to cloud")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
+            Spacer()
             
             Button(action: {
                 
@@ -88,6 +70,39 @@ struct ProfileView2: View {
                     .background(Color.red)
                     .cornerRadius(10)
             }
+            
+            Button(action: {
+                
+            }) {
+                Text("Change Password")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.green)
+                    .cornerRadius(10)
+            }
+            
+            VStack {
+                Button(action: {
+                    let ref = Database.database().reference()
+                    let userRef = ref.child("users")
+                    let newUserRef = userRef.child("\(userData.username)\(datetoString(date: today))")
+
+                    let usermodel = ["steps": userData.Steps ,
+                                     "distance": userData.distance ,
+                                     "calories": userData.calories
+                                    ] as [String : Any]
+                    newUserRef.setValue(usermodel)
+                    
+                }) {
+                    Text("Send today's data to cloud")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+            }
+            .padding(.bottom , 30)
+            
             
         }
         .fullScreenCover(isPresented: $navigateToSignUpView, content: {
