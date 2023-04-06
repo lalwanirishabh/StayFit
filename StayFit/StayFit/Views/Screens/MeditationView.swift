@@ -17,7 +17,7 @@ struct MeditationView: View {
     @State var countDownTimer: Int = 2
     @State var timerRunning = false
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+//    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let med: String
     @State private var isAnimating: Bool = false
@@ -52,30 +52,30 @@ struct MeditationView: View {
                     )
             }
             
-            HStack {
-                        TextField("Hours", text: $hours)
-                            .textFieldStyle(.roundedBorder)
-                            .keyboardType(.numberPad)
-                            .frame(width: 50)
-                        TextField("Minutes", text: $minutes)
-                            .textFieldStyle(.roundedBorder)
-                            .keyboardType(.numberPad)
-                            .frame(width: 50)
-                        TextField("Seconds", text: $seconds)
-                            .textFieldStyle(.roundedBorder)
-                            .keyboardType(.numberPad)
-                            .frame(width: 50)
-                    }
-                    .padding()
+//            HStack {
+//                        TextField("Hours", text: $hours)
+//                            .textFieldStyle(.roundedBorder)
+//                            .keyboardType(.numberPad)
+//                            .frame(width: 50)
+//                        TextField("Minutes", text: $minutes)
+//                            .textFieldStyle(.roundedBorder)
+//                            .keyboardType(.numberPad)
+//                            .frame(width: 50)
+//                        TextField("Seconds", text: $seconds)
+//                            .textFieldStyle(.roundedBorder)
+//                            .keyboardType(.numberPad)
+//                            .frame(width: 50)
+//                    }
+//                    .padding()
             
-            Text("\(countDownTimer)")
-                .onReceive(timer){ _ in
-                    if countDownTimer > 0 && timerRunning{
-                        countDownTimer -= 1
-                    }else{
-                        timerRunning = false
-                    }
-                }
+//            Text("\(countDownTimer)")
+//                .onReceive(timer){ _ in
+//                    if countDownTimer > 0 && timerRunning{
+//                        countDownTimer -= 1
+//                    }else{
+//                        timerRunning = false
+//                    }
+//                }
             
             HStack(spacing: 20) {
                 Button(action: {

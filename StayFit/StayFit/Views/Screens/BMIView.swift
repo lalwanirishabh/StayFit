@@ -14,6 +14,7 @@ struct BMIView: View {
     
     @State private var navigateToAddDetailsView = false
     
+    
     var body: some View {
         let bmi = calculateBMI()
                 

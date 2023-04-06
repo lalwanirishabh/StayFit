@@ -14,6 +14,7 @@ import FirebaseStorage
 
 struct ChangeMeasurmentsView: View {
     
+    @State private var navigateToAddDetailsView = false
     @State var weight: Double = 0 // initialize to 0
     @State var height: Double = 0 // initialize to 0
     
@@ -64,6 +65,8 @@ struct ChangeMeasurmentsView: View {
                     Button(action: {
                         userData.weight = weight
                         userData.height = height
+                        
+                        navigateToAddDetailsView.toggle()
                     }) {
                         Text("Save")
                             .font(.headline)
@@ -74,6 +77,9 @@ struct ChangeMeasurmentsView: View {
                     }
                     .padding()
                 }
+        .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
+            TabsView()
+        })
     }
     
     func sendDatatoCloud(){
