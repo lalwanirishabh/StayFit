@@ -11,6 +11,8 @@ import FirebaseDatabase
 import FirebaseCore
 import FirebaseAuth
 
+
+
 struct TabsView: View {
     
     @EnvironmentObject var userData : ViewModel
@@ -60,7 +62,10 @@ struct TabsView: View {
 
 struct TabsView_Previews: PreviewProvider {
     static var previews: some View {
+        let userData = ViewModel()
+        return TabsView().environmentObject(userData)
         TabsView()
             .preferredColorScheme(.dark)
+            .previewLayout(.sizeThatFits)
     }
 }

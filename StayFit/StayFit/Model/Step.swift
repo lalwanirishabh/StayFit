@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - USERDAILYSTEPDATA
+
 struct Step: Identifiable {
     let id = UUID()
     let count: Int
