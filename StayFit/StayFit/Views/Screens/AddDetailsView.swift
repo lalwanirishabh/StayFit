@@ -14,6 +14,7 @@ import UIKit
 
 struct AddDetailsView: View {
         
+    //MARK: - VARIABLES
         @EnvironmentObject var userData : ViewModel
         @State private var name: String = ""
         @State private var gender: String = ""
@@ -28,6 +29,8 @@ struct AddDetailsView: View {
     
         let dateFormatter = DateFormatter()
     
+    
+    //MARK: - FUNCTIONS
     func datetoString(today : Date) -> String{
         let dateFormatter = DateFormatter()
         let formatter = DateFormatter()
@@ -37,9 +40,11 @@ struct AddDetailsView: View {
     }
     
 
+    //MARK: - BODY
     var body: some View {
         VStack {
             
+            //MARK: - PROFILEIMAGE
             if let image = image {
                 Image(uiImage: image)
                     .resizable()
@@ -50,14 +55,19 @@ struct AddDetailsView: View {
                     .shadow(radius: 7)
             }
             
+            
+            //MARK: - TEXTFIELDS
                     TextField("Name", text: $name)
                     .padding()
                     TextField("Gender", text: $gender)
                 .padding(.horizontal)
-                    
+                   
+            
+            //MARK: - DATEPICKER
                     DatePicker("Date of Birth", selection: $dateOfBirth, displayedComponents: .date)
                     .padding(.horizontal)
             
+            //MARK: - WEIGHTSCROLLER
                     HStack {
                         Text("Weight (kg):")
                             .padding(.trailing)
@@ -78,6 +88,7 @@ struct AddDetailsView: View {
                     }
                     .padding(.horizontal)
             
+            //MARK: - HEIGHTSCROLLER
                 HStack {
                     Text("Height (cm):")
                         .padding(.trailing)
@@ -99,6 +110,8 @@ struct AddDetailsView: View {
                 }
                 .padding(.horizontal)
             
+            
+            //MARK: - DAILYSTEPSSCROLLER
             HStack {
                 Text("Daily Steps Target")
                     .padding(.trailing)
@@ -121,7 +134,8 @@ struct AddDetailsView: View {
             .padding(.horizontal)
                     
             
-                    
+            
+            //MARK: - PROFILEIMAGEPICKER
                     Button(action: {
                         self.showImagePicker = true
                     }) {
@@ -131,10 +145,9 @@ struct AddDetailsView: View {
                     .sheet(isPresented: $showImagePicker) {
                                     ImagePicker(image: self.$image, isShown: self.$showImagePicker)
                                 }
-            
+                    
+                    //MARK: - CONTINUEBUTTON
                     Button(action: {
-                        
-                        print(userData.username)
                         
                         userData.name = name
                         userData.dob = dateOfBirth
@@ -222,6 +235,8 @@ struct AddDetailsView: View {
         }
 }
 
+
+//MARK: - PREVIEW
 struct AddDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         AddDetailsView()
@@ -229,6 +244,8 @@ struct AddDetailsView_Previews: PreviewProvider {
     }
 }
 
+
+//MARK: - IMAGEPICKERPROTOCOL
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Binding var isShown: Bool

@@ -29,5 +29,6 @@ struct SelectMeditationView: View {
 struct SelectMeditationView_Previews: PreviewProvider {
     static var previews: some View {
         SelectMeditationView()
+            .preferredColorScheme(.dark)
     }
 }

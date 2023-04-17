@@ -51,7 +51,8 @@ struct BrowseView: View {
 
 struct BrowseView_Previews: PreviewProvider {
     static var previews: some View {
-        BrowseView()
+        let userData = ViewModel()
+        return BrowseView().environmentObject(userData)
             .preferredColorScheme(.dark)
     }
 }

@@ -16,6 +16,7 @@ import FirebaseStorage
 
 struct ProfileView2: View {
     
+    //MARK: - VARIABLES
     let name : String
     let username : String
     let email : String
@@ -25,11 +26,13 @@ struct ProfileView2: View {
     @State private var navigateToSignUpView = false
     let today = Date()
     
+    //MARK: - BODY
     var body: some View {
         VStack{
             
             Spacer()
             
+            //MARK: - PROFILEIMAGE&NAME
             Image(uiImage : image)
                         .resizable()
                         .frame(width: 100, height: 100)
@@ -46,6 +49,8 @@ struct ProfileView2: View {
             
             Spacer()
             
+            
+            //MARK: - LOGOUTBUTTON
             Button(action: {
                 
                 userData.username = ""
@@ -71,6 +76,7 @@ struct ProfileView2: View {
                     .cornerRadius(10)
             }
             
+            //MARK: - CHANGEPASSBUTTON
             Button(action: {
                 
             }) {
@@ -82,6 +88,8 @@ struct ProfileView2: View {
             }
             
             VStack {
+                
+                //MARK: - DATACLOUDBUTTON
                 Button(action: {
                     let ref = Database.database().reference()
                     let userRef = ref.child("users")
@@ -110,6 +118,8 @@ struct ProfileView2: View {
         })
     }
     
+    
+    //MARK: - FUNCTIONS
     func datetoString(date : Date) -> String{
         let dateFormatter = DateFormatter()
         let formatter = DateFormatter()
@@ -119,6 +129,7 @@ struct ProfileView2: View {
     }
 }
 
+//MARK: - PREVIEW
 struct ProfileView2_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView2(name: "Rishabh" , username: "_lalwanirishabh" , email: "rishabhlalwani1048@gmail.com", image: UIImage(named: "character-2")!)

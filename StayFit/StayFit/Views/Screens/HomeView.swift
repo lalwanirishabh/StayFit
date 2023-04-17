@@ -11,6 +11,7 @@ import HealthKit
 
 struct HomeView: View {
     
+    //MARK: - VARIABLES
     @State var progressValue: Double = 0.7
     @EnvironmentObject var userData : ViewModel
     
@@ -25,6 +26,7 @@ struct HomeView: View {
         healthStore = HealthStore()
     }
     
+    //MARK: - FUNCTIONS
     func greeting() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
         
@@ -105,10 +107,12 @@ struct HomeView: View {
             distanceStore.execute(query)
         }
     
-    
+    //MARK: - BODY
     var body: some View {
         ScrollView {
             VStack {
+                
+                //MARK: - HEADER
                 GroupBox {
                     HStack {
                         Image(uiImage: userData.image!)
@@ -139,7 +143,7 @@ struct HomeView: View {
                 
                 
                 
-                
+                //MARK: - STEPS
                 VStack{
                     ZStack {
                         Circle()
@@ -179,6 +183,7 @@ struct HomeView: View {
                 }
                 .padding()
                 
+                //MARK: - FOOTER
                 GroupBox{
                     HStack {
                         CardView(symbol: "figure.step.training", title: "Distance", value: "\(String(format: "%.2f", (userData.distance))) km")
@@ -211,7 +216,7 @@ struct HomeView: View {
 
     
     
-    
+    //MARK: - CARDVIEW
     struct CardView: View {
         var symbol : String
         var title: String
@@ -224,10 +229,8 @@ struct HomeView: View {
                         .foregroundColor(Color("ColorGreen"))
                     Text(" \(title)")
                         .font(.headline)
-                    //                    .font(.headline)
                 }
-//                Text("\(Image(systemName: symbol)) \(title)")
-//                    .font(.headline)
+
                 Divider()
                 Text(value)
                     .font(.title)
@@ -239,9 +242,11 @@ struct HomeView: View {
         }
     }
     
+    //MARK: - PREVIEW
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            HomeView()
+            let userData = ViewModel()
+            return HomeView().environmentObject(userData)
                 .preferredColorScheme(.dark)
         }
     }
