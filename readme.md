@@ -1,13 +1,3 @@
-# Code-Crusaders
-
-#### Atrang Hackathon
----
- * Android [app source code](https://github.com/yashkys/Code-Crusaders.git)
----
-### Apk Link
-* [Android](https://drive.google.com/file/d/1maV0h5Y36ie57GKK5CC7vaxe4dp551sn/view?usp=sharing)
-* IOS App .ipa can't be hosted because we didn't purchase Apple Developer Program and apple doesn't allow developers sharing apps without purchasing it.
----
 
 ### Youtube Link
 * [App Demo](https://www.youtube.com/watch?v=3bgsmEN9a20)
@@ -38,19 +28,17 @@ The inspiration behind StayFit comes from our team's shared passion for promotin
 Our inspiration for StayFit stems from the need to provide a comprehensive health and fitness solution that makes it convenient, engaging, and empowering for users to maintain a healthy lifestyle in today's fast-paced world. We are excited to bring our vision to life through this hackathon project and make a positive impact on users' lives.
 
 ## How we built it
-The App was built using Java Language on Android Studio and Swift on Xcode. The Frameworks used are Firebase, UIKit and HealthKit.
-## Challenges we ran into
-Integrating with Third-Party APIs: FitLife may need to integrate with third-party APIs, such as Google Fit API for step tracking or nutrition APIs for recipe recommendations. These integrations can pose challenges in terms of API documentation, compatibility, and data consistency.
+The App was built using Swift on Xcode. The Frameworks used are Firebase, UIKit and HealthKit.
 
-## Accomplishments that we're proud of
-Working together as team is one of the best parts of this project. 
+
+
 
 ## What it does
 Our health and fitness app, is designed to provide users with a comprehensive solution for tracking their physical activities, managing their diet, and accessing valuable health-related content. It also connect users with healthcare providers through our appointment booking section. We understand the importance of seeking professional advice when it comes to health and fitness, and we wanted to create a platform that facilitates those connections.
 
 ## What we learned
 There are so many things we learned while working on this project.
-We learnt to effectively use many stuff on android such as firebase , google fit api, HealthKit,etc.
+
 
 ## What's next for StayFit
 There are so many things in mind for the improvement of the App like Video Consultancy, personalized record of activities, etc but due to lack of time, working skills, and experience we haven't done much of what we aimed for.  
