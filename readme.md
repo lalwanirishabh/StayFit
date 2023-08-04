@@ -55,11 +55,3 @@ We learnt to effectively use many stuff on android such as firebase , google fit
 ## What's next for StayFit
 There are so many things in mind for the improvement of the App like Video Consultancy, personalized record of activities, etc but due to lack of time, working skills, and experience we haven't done much of what we aimed for.  
 
----
-### Creators
-* Yash Khaitan 
-     , 2nd Year CSE, IIITT
-* Rishabh Lalwani 
-     , 2nd Year CSE, IIITT
-* Suman Raj
-      , 3rd Year ECE, IIITT_
