@@ -10,8 +10,9 @@ import UIKit
 
 // MARK: - USERDATAMODEL
 
-class ViewModel : ObservableObject {
-
+class UserModel : ObservableObject {
+    static let instance = UserModel()
+    
     @Published var username: String = ""
     @Published var weight: Double = 0.0
     @Published var height: Double = 0.0
@@ -26,6 +27,4 @@ class ViewModel : ObservableObject {
     @Published var imageUrl : String = ""
     @Published var isUserLoggedIn: Bool = false
     @Published var dailyStepsTarget: Int = 5000
-    
-    
 }

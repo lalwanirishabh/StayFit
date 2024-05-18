@@ -13,62 +13,60 @@ import FirebaseAuth
 
 struct LogInView: View {
     //MARK: - VARIABLES
-    @EnvironmentObject var userData : ViewModel
     
     @State private var navigateToTabsView = false
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var navigateToAddDetailsView = false
     @State private var navigateToSignUpView = false
-
+    @StateObject var googleSignInVM = GoogleSignInViewModel()
+    
     //MARK: - BODY
     var body: some View {
-        
-        
         //MARK: -TEXTFIELDS
         VStack {
-            
             TextField("Email", text: $email)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-
+                .padding()
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(10)
+                .padding(.horizontal)
+                .padding(.top, 200)
             SecureField("Password", text: $password)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .padding(.horizontal)
-            
-            
             //MARK: - BUTTONS
             Button(action: {
-                           loginUser()
-                       }) {
-            Text("Log In")
-                .foregroundColor(.white)
-                .font(.headline)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .cornerRadius(10)
-                .padding(.horizontal)
-                       }
-            
+                loginUser()
+            }) {
+                Text("Log In")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+            }
             Button(action: {
                 navigateToSignUpView.toggle()
-                       }) {
-            Text("Dont have an account. Click here")
-                .foregroundColor(.white)
-                .font(.headline)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .cornerRadius(10)
+            }) {
+                Text("Dont have an account. Click here")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+            }
+            GoogleSignInView()
                 .padding(.horizontal)
-                       }
-            
-            
+                .onTapGesture {
+                    print("Google Sign In clicked")
+                }
+            Spacer()
         }
         .fullScreenCover(isPresented: $navigateToTabsView, content: {
             TabsView()
@@ -81,7 +79,6 @@ struct LogInView: View {
     
     //MARK: - FUNCTIONS
     func loginUser(){
-        
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 print(e)
@@ -93,30 +90,28 @@ struct LogInView: View {
     }
     
     func retrieveData(){
-        
         if let user = Auth.auth().currentUser {
             let uid = user.uid
+            UserDefaults.standard.set(uid, forKey: UserDefaultKeys.UserModel.uid)
             let ref = Database.database().reference()
             ref.child("users/\(uid)/username").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.username = value
+                    UserModel.instance.username = value
+                    UserDefaults.standard.set(value, forKey: UserDefaultKeys.UserModel.username)
                     retrieveData2()
                 }
             })
         }
     }
-        
+    
     func retrieveData2(){
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/name").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/name").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.name = value
+                    UserModel.instance.name = value
+                    UserDefaults.standard.set(value, forKey: UserDefaultKeys.UserModel.name)
                 }
             })
         }
@@ -124,11 +119,10 @@ struct LogInView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/gender").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/gender").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.gender = value
+                    UserModel.instance.gender = value
+                    UserDefaults.standard.set(value, forKey: UserDefaultKeys.UserModel.gender)
                 }
             })
         }
@@ -136,11 +130,10 @@ struct LogInView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/weight").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/weight").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? Double {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.weight = value
+                    UserModel.instance.weight = value
+
                 }
             })
             
@@ -149,11 +142,9 @@ struct LogInView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/dailyStepsTarget").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/dailyStepsTarget").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? Int {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.dailyStepsTarget = value
+                    UserModel.instance.dailyStepsTarget = value
                 }
             })
             
@@ -162,12 +153,9 @@ struct LogInView: View {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/height").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/height").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? Double {
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.height = value
-                    print(userData.height)
+                    UserModel.instance.height = value
                 }
             })
             
@@ -177,12 +165,11 @@ struct LogInView: View {
             let uid = user.uid
             
             let ref = Database.database().reference()
-            ref.child("users/\(userData.username)/imageUrl").observeSingleEvent(of: .value, with: { snapshot in
+            ref.child("users/\(UserModel.instance.username)/imageUrl").observeSingleEvent(of: .value, with: { snapshot in
                 if let value = snapshot.value as? String{
-                    // If the retrieved data is a string, update the @State variable
-                    
-                    userData.imageUrl = value
-                    print(userData.imageUrl)
+                    UserModel.instance.imageUrl = value
+                    UserDefaults.standard.set(value, forKey: UserDefaultKeys.UserModel.profileImageURL)
+                    print(UserModel.instance.imageUrl)
                     guard let url = URL(string: "\(value)") else {
                         return
                     }
@@ -199,7 +186,7 @@ struct LogInView: View {
                         }
                         
                         DispatchQueue.main.async {
-                            userData.image = UIImage(data: data)
+                            UserModel.instance.image = UIImage(data: data)
                             print("Hello")
                         }
                     }.resume()
@@ -207,15 +194,14 @@ struct LogInView: View {
             })
         }
     }
-        
-        
-    }
+    
+    
+}
 
 
 //MARK: - PREVIEW
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
-            .preferredColorScheme(.dark)
     }
 }

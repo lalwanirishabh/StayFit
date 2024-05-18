@@ -13,42 +13,36 @@ import FirebaseDatabaseSwift
 struct SignUpView: View {
     
     // MARK: - VARIABLES
-    @EnvironmentObject var userData : ViewModel
     
     @State private var email: String = ""
     @State private var password: String = ""
     @State var username: String = ""
     @State private var navigateToAddDetailsView = false
+    @State var navigateToHomeView = false
     @State private var navigateToLogInView = false
+    @StateObject var googleSignInVM = GoogleSignInViewModel()
     
     // MARK: - BODY
     var body: some View {
-        
-        
         // MARK: - TEXTFIELDS
         VStack {
-            
             TextField("Username", text: $username)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .padding(.horizontal)
-            
-            
+                .padding(.top, 150)
             TextField("Email", text: $email)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .padding(.horizontal)
-            
             SecureField("Password", text: $password)
                 .padding()
                 .background(Color(.secondarySystemBackground))
                 .cornerRadius(10)
                 .padding(.horizontal)
-            
             // MARK: - BUTTONS
-            
             Button(action: {
                 registerUser()
             }) {
@@ -61,8 +55,6 @@ struct SignUpView: View {
                     .cornerRadius(10)
                     .padding(.horizontal)
             }
-            
-            
             Button(action: {
                 navigateToLogInView.toggle()
             }) {
@@ -75,6 +67,12 @@ struct SignUpView: View {
                     .cornerRadius(10)
                     .padding(.horizontal)
             }
+            GoogleSignInView()
+                .padding(.horizontal)
+                .onTapGesture {
+                    print("Google Sign In clicked")
+                }
+            Spacer()
         }
         .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
             AddDetailsView()
@@ -82,24 +80,18 @@ struct SignUpView: View {
         .fullScreenCover(isPresented: $navigateToLogInView, content: {
             LogInView()
         })
-        
-        
-        
-        
     }
     
     //MARK: - FUNCTIONS
-    
     func registerUser(){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!)
             }
             else{
-                userData.username = username
-                userData.email = email
-                userData.isUserLoggedIn = true
-                
+                UserModel.instance.username = username
+                UserModel.instance.email = email
+                UserModel.instance.isUserLoggedIn = true
                 guard let uid = result?.user.uid else { return }
                 let ref = Database.database().reference()
                 let userRef = ref.child("users").child(uid)
@@ -109,16 +101,11 @@ struct SignUpView: View {
             }
         }
     }
-    
-    
 }
-
-
 
 //MARK: - PREVIEW
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
-            .preferredColorScheme(.dark)
     }
 }

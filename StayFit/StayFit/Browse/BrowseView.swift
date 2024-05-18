@@ -23,7 +23,6 @@ struct WebView: UIViewRepresentable {
 
 struct BrowseView: View {
     
-    @EnvironmentObject var userData : ViewModel
     
     
     var body: some View {
@@ -31,7 +30,7 @@ struct BrowseView: View {
                         NavigationLink(destination: SelectMeditationView()) {
                             Text("Meditation")
                         }
-                    NavigationLink(destination: BMIView(height: userData.height, weight: userData.weight)) {
+                    NavigationLink(destination: BMIView(height: UserModel.instance.height, weight: UserModel.instance.weight)) {
                             Text("BMI")
                         }
                         NavigationLink(destination: ExerciseRoutineView()) {
@@ -51,8 +50,7 @@ struct BrowseView: View {
 
 struct BrowseView_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = ViewModel()
-        return BrowseView().environmentObject(userData)
+        return BrowseView().environmentObject(UserModel.instance)
             .preferredColorScheme(.dark)
     }
 }

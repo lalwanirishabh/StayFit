@@ -13,7 +13,6 @@ struct HomeView: View {
     
     //MARK: - VARIABLES
     @State var progressValue: Double = 0.7
-    @EnvironmentObject var userData : ViewModel
     
     private var healthStore : HealthStore?
     let calorieStore = HKHealthStore()
@@ -49,7 +48,7 @@ struct HomeView: View {
             
             let step = Step(count: Int(count ?? 0), date: statistics.startDate)
             steps.append(step)
-            userData.Steps = step.count
+            UserModel.instance.Steps = step.count
         }
         
     }
@@ -73,7 +72,7 @@ struct HomeView: View {
             
             let calories = Int(sum.doubleValue(for: HKUnit.kilocalorie()))
             print("calories = \(calories)")
-            userData.calories = calories
+            UserModel.instance.calories = calories
             // Use the calories value here.
         }
 
@@ -101,7 +100,7 @@ struct HomeView: View {
                 let distanceInMeters = sum.doubleValue(for: HKUnit.meter())
                 let distanceInKilometers = distanceInMeters / 1000.0
                 print("Distance = \(distanceInKilometers)")
-                userData.distance = distanceInKilometers
+                UserModel.instance.distance = distanceInKilometers
             }
 
             distanceStore.execute(query)
@@ -115,7 +114,7 @@ struct HomeView: View {
                 //MARK: - HEADER
                 GroupBox {
                     HStack {
-                        Image(uiImage: userData.image!)
+                        Image(uiImage: UserModel.instance.image!)
                             .resizable()
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
@@ -127,7 +126,7 @@ struct HomeView: View {
                         VStack(alignment: .leading) {
                             Text(greeting())
                                 .font(.title3)
-                            Text(userData.name)
+                            Text(UserModel.instance.name)
                                 .font(.title)
                         }
                         
@@ -153,7 +152,7 @@ struct HomeView: View {
                             .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
                         
                         Circle()
-                            .trim(from: 0.0, to: CGFloat(min(self.progressValue, Double(userData.Steps) / Double(userData.dailyStepsTarget))))
+                            .trim(from: 0.0, to: CGFloat(min(self.progressValue, Double(UserModel.instance.Steps) / Double(UserModel.instance.dailyStepsTarget))))
                             .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))
                             .foregroundColor(Color("ColorGreen"))
                             .rotationEffect(Angle(degrees: 270.0))
@@ -168,11 +167,11 @@ struct HomeView: View {
                             Spacer()
                             Spacer()
                             Spacer()
-                            Text("\(userData.Steps) \(Image(systemName: "shoeprints.fill"))")
+                            Text("\(UserModel.instance.Steps) \(Image(systemName: "shoeprints.fill"))")
                                 .font(.title)
                                 .foregroundColor(Color("ColorBlue"))
                             
-                            Text("\(String(format: "%.1f", ((Double(userData.Steps) / 5000.0) * 100))) %")
+                            Text("\(String(format: "%.1f", ((Double(UserModel.instance.Steps) / 5000.0) * 100))) %")
                                 .font(.title3)
                                 .padding(.vertical)
                             Spacer()
@@ -186,8 +185,8 @@ struct HomeView: View {
                 //MARK: - FOOTER
                 GroupBox{
                     HStack {
-                        CardView(symbol: "figure.step.training", title: "Distance", value: "\(String(format: "%.2f", (userData.distance))) km")
-                        CardView(symbol: "bolt.heart.fill", title: "Calories", value: "\(userData.calories) kcal")
+                        CardView(symbol: "figure.step.training", title: "Distance", value: "\(String(format: "%.2f", (UserModel.instance.distance))) km")
+                        CardView(symbol: "bolt.heart.fill", title: "Calories", value: "\(UserModel.instance.calories) kcal")
                     }
                     .padding()
                     .cornerRadius(10)
@@ -245,8 +244,7 @@ struct HomeView: View {
     //MARK: - PREVIEW
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            let userData = ViewModel()
-            return HomeView().environmentObject(userData)
+            return HomeView().environmentObject(UserModel.instance)
                 .preferredColorScheme(.dark)
         }
     }

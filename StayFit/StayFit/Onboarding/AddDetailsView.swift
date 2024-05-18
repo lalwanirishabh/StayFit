@@ -15,7 +15,6 @@ import UIKit
 struct AddDetailsView: View {
         
     //MARK: - VARIABLES
-        @EnvironmentObject var userData : ViewModel
         @State private var name: String = ""
         @State private var gender: String = ""
         @State private var dateOfBirth: Date = Date()
@@ -149,18 +148,18 @@ struct AddDetailsView: View {
                     //MARK: - CONTINUEBUTTON
                     Button(action: {
                         
-                        userData.name = name
-                        userData.dob = dateOfBirth
-                        userData.weight = weight
-                        userData.height = height
-                        userData.image = image
-                        userData.gender = gender
-                        userData.dailyStepsTarget = dailyStepsTarget*100
+                        UserModel.instance.name = name
+                        UserModel.instance.dob = dateOfBirth
+                        UserModel.instance.weight = weight
+                        UserModel.instance.height = height
+                        UserModel.instance.image = image
+                        UserModel.instance.gender = gender
+                        UserModel.instance.dailyStepsTarget = dailyStepsTarget*100
                         
                         if let imageData = image?.jpegData(compressionQuality: 0.5) {
                                             let storageRef = storage.reference()
                                             let imagesRef = storageRef.child("images")
-                            let imageRef = imagesRef.child("\(userData.username).jpg")
+                            let imageRef = imagesRef.child("\(UserModel.instance.username).jpg")
                                             let metadata = StorageMetadata()
                                             metadata.contentType = "image/jpeg"
                                             imageRef.putData(imageData, metadata: metadata) { metadata, error in
@@ -171,8 +170,8 @@ struct AddDetailsView: View {
                                                             guard let downloadURL = url else { return }
                                                             let imageUrl = downloadURL.absoluteString
                                                         print("\(imageUrl)")
-                                                        userData.imageUrl = String(imageUrl)
-                                                        print(userData.imageUrl)
+                                                        UserModel.instance.imageUrl = String(imageUrl)
+                                                        print(UserModel.instance.imageUrl)
                                                         sendData()
                                                         }
                                                     print("Image uploaded successfully!")
@@ -184,17 +183,17 @@ struct AddDetailsView: View {
                         func sendData(){
                             let ref = Database.database().reference()
                             let userRef = ref.child("users")
-                        let newUserRef = userRef.child(userData.username)
+                        let newUserRef = userRef.child(UserModel.instance.username)
                         
                             let usermodel = ["weight": weight ,
                                          "height": height ,
                                          "name": name ,
                                              "gender": gender ,
-                                             "imageUrl" : userData.imageUrl ,
-                                             "dob" : Int(datetoString(today: userData.dob))! ,
-                                            "email" : userData.email,
-                                             "username" : userData.username,
-                                             "dailyStepsTarget" : userData.dailyStepsTarget
+                                             "imageUrl" : UserModel.instance.imageUrl ,
+                                             "dob" : Int(datetoString(today: UserModel.instance.dob))! ,
+                                            "email" : UserModel.instance.email,
+                                             "username" : UserModel.instance.username,
+                                             "dailyStepsTarget" : UserModel.instance.dailyStepsTarget
                                              
                         
                             ] as [String : Any]

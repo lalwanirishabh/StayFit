@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @EnvironmentObject var userData : ViewModel
     @State private var navigateToAddDetailsView = false
     
     var body: some View {
@@ -20,6 +18,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
     }
 }
