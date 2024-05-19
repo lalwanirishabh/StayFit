@@ -2,9 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>This app requires to access Health Data</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>This app requires to access Health Data</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.703930910531-uhvu3ods7g4tgbifnf2ib7qqqdqqcief</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

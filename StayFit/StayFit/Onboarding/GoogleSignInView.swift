@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoogleSignInView: View {
+    @StateObject var googleSignInVM = GoogleSignInViewModel()
+    @State private var navigateToTabsView = false
     var body: some View {
         VStack {
             HStack {
@@ -25,6 +27,19 @@ struct GoogleSignInView: View {
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 2))
+            .onTapGesture {
+                googleSignInVM.signInWithGoogle { result in
+                    if result {
+                        UserDefaults.standard.set(true, forKey: UserDefaultKeys.isLoggedIn)
+                        navigateToTabsView.toggle()
+                    } else {
+                        
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $navigateToTabsView) {
+                TabsView()
+            }
         }
     }
 }
