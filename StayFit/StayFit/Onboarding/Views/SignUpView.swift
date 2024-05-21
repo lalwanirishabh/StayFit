@@ -13,25 +13,18 @@ import FirebaseDatabaseSwift
 struct SignUpView: View {
     
     // MARK: - VARIABLES
-    
-    @State private var email: String = ""
+    @AppStorage(UserDefaultKeys.UserModel.email) var email: String = ""
     @State private var password: String = ""
-    @State var username: String = ""
     @State private var navigateToAddDetailsView = false
     @State var navigateToHomeView = false
     @State private var navigateToLogInView = false
-    @StateObject var googleSignInVM = GoogleSignInViewModel()
+    @EnvironmentObject var authVM: AuthenticationViewModel
+    @State var navigateToSignUpWithNumberView: Bool = false
     
     // MARK: - BODY
     var body: some View {
         // MARK: - TEXTFIELDS
         VStack {
-            TextField("Username", text: $username)
-                .padding()
-                .background(Color(.secondarySystemBackground))
-                .cornerRadius(10)
-                .padding(.horizontal)
-                .padding(.top, 150)
             TextField("Email", text: $email)
                 .padding()
                 .background(Color(.secondarySystemBackground))
@@ -44,6 +37,8 @@ struct SignUpView: View {
                 .padding(.horizontal)
             // MARK: - BUTTONS
             Button(action: {
+                UserDefaults.standard.set(email, forKey: UserDefaultKeys.UserModel.email)
+                UserModel.instance.email = email
                 registerUser()
             }) {
                 Text("Sign Up")
@@ -67,6 +62,25 @@ struct SignUpView: View {
                     .cornerRadius(10)
                     .padding(.horizontal)
             }
+            .fullScreenCover(isPresented: $navigateToLogInView, content: {
+                LogInView()
+                    .environmentObject(authVM)
+            })
+            Button(action: {
+                navigateToSignUpWithNumberView.toggle()
+            }) {
+                Text("Sign Up with Mobile Number")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+            }
+            .fullScreenCover(isPresented: $navigateToSignUpWithNumberView, content: {
+                SignUpWithMobileNumberView()
+            })
             GoogleSignInView()
                 .padding(.horizontal)
                 .onTapGesture {
@@ -77,9 +91,6 @@ struct SignUpView: View {
         .fullScreenCover(isPresented: $navigateToAddDetailsView, content: {
             AddDetailsView()
         })
-        .fullScreenCover(isPresented: $navigateToLogInView, content: {
-            LogInView()
-        })
     }
     
     //MARK: - FUNCTIONS
@@ -89,14 +100,9 @@ struct SignUpView: View {
                 print(error!)
             }
             else{
-                UserModel.instance.username = username
-                UserModel.instance.email = email
-                UserModel.instance.isUserLoggedIn = true
                 guard let uid = result?.user.uid else { return }
-                let ref = Database.database().reference()
-                let userRef = ref.child("users").child(uid)
-                let userData = ["username": username]
-                userRef.setValue(userData)
+                UserModel.instance.uid = uid
+                UserDefaults.standard.set(uid, forKey: UserDefaultKeys.UserModel.uid)
                 navigateToAddDetailsView.toggle()
             }
         }
@@ -107,5 +113,6 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
+            .environmentObject(AuthenticationViewModel())
     }
 }

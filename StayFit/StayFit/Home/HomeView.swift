@@ -110,11 +110,10 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack {
-                
                 //MARK: - HEADER
                 GroupBox {
                     HStack {
-                        Image(uiImage: UserModel.instance.image!)
+                        Image(uiImage: UserModel.instance.image ?? UIImage())
                             .resizable()
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
@@ -128,6 +127,7 @@ struct HomeView: View {
                                 .font(.title3)
                             Text(UserModel.instance.name)
                                 .font(.title)
+                                .foregroundColor(.primary)
                         }
                         
                         Spacer()
@@ -139,9 +139,6 @@ struct HomeView: View {
                 }
                 .padding(.horizontal)
                 .cornerRadius(10)
-                
-                
-                
                 //MARK: - STEPS
                 VStack{
                     ZStack {

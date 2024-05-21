@@ -16,10 +16,6 @@ import FirebaseStorage
 
 struct ProfileView2: View {
     //MARK: - VARIABLES
-    let name : String
-    let username : String
-    let email : String
-    let image : UIImage
     @State private var navigateToSignUpView = false
     let today = Date()
     //MARK: - BODY
@@ -27,23 +23,24 @@ struct ProfileView2: View {
         VStack{
             Spacer()
             //MARK: - PROFILEIMAGE&NAME
-            Image(uiImage : image)
+            Image(uiImage : UserModel.instance.image ?? UIImage())
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 7)
-            Text(name)
+            Text(UserModel.instance.name)
                 .font(.title)
                 .padding(.top)
-            Text("@\(username)")
+            Text("@\(UserModel.instance.username)")
                 .font(.title2)
             //MARK: - LOGOUTBUTTON
             Button(action: {
+                UserModel.instance.uid = ""
                 UserModel.instance.username = ""
-                UserModel.instance.name = ""
                 UserModel.instance.weight = 0.0
                 UserModel.instance.height = 0.0
+                UserModel.instance.name = ""
                 UserModel.instance.image = UIImage()
                 UserModel.instance.dob = Date()
                 UserModel.instance.gender = ""
@@ -51,7 +48,16 @@ struct ProfileView2: View {
                 UserModel.instance.Steps = 0
                 UserModel.instance.distance = 0.0
                 UserModel.instance.calories = 0
-                UserModel.instance.isUserLoggedIn = false
+                UserModel.instance.imageUrl = ""
+                UserModel.instance.dailyStepsTarget = 5000
+                UserModel.instance.phoneNumber = ""
+                UserDefaults.standard.set(false, forKey: UserDefaultKeys.isLoggedIn)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.uid)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.username)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.name)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.gender)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.profileImageURL)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.email)
                 navigateToSignUpView.toggle()
             }) {
                 Text("LogOut")
@@ -117,7 +123,6 @@ struct ProfileView2: View {
 //MARK: - PREVIEW
 struct ProfileView2_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView2(name: "Rishabh" , username: "_lalwanirishabh" , email: "rishabhlalwani1048@gmail.com", image: UIImage(named: "character-2")!)
-            .preferredColorScheme(.dark)
+        ProfileView2()
     }
 }

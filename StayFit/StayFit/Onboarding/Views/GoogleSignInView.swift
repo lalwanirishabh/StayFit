@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GoogleSignInView: View {
-    @StateObject var googleSignInVM = GoogleSignInViewModel()
-    @State private var navigateToTabsView = false
+    @EnvironmentObject var authVM: AuthenticationViewModel
+    @State var naviagteToAddDetialsView = false
     var body: some View {
         VStack {
             HStack {
@@ -24,21 +24,20 @@ struct GoogleSignInView: View {
                     .padding(.vertical)
                 Spacer()
             }
+            .sheet(isPresented: $naviagteToAddDetialsView) {
+                AddDetailsView()
+            }
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.black, lineWidth: 2))
             .onTapGesture {
-                googleSignInVM.signInWithGoogle { result in
-                    if result {
+                authVM.signInWithGoogle { userExists in
+                    if userExists {
                         UserDefaults.standard.set(true, forKey: UserDefaultKeys.isLoggedIn)
-                        navigateToTabsView.toggle()
                     } else {
-                        
+                        self.naviagteToAddDetialsView = true
                     }
                 }
-            }
-            .fullScreenCover(isPresented: $navigateToTabsView) {
-                TabsView()
             }
         }
     }
