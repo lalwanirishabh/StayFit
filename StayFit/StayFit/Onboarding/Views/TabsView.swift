@@ -14,16 +14,11 @@ import FirebaseAuth
 
 
 struct TabsView: View {
-    
-    @EnvironmentObject var userData : ViewModel
-
+    @EnvironmentObject var authVM: AuthenticationViewModel
     //MARK: - BODY
     var body: some View {
-        
-        
         //MARK: - TABVIEW
         TabView {
-            
             //MARK: - HOMEVIEW
             NavigationView {
                 HomeView()
@@ -32,7 +27,6 @@ struct TabsView: View {
                     Image(systemName: "house.circle")
                     Text("Feed")
                 }
-                
             //MARK: - FEEDVIEW
             NavigationView {
                 FeedView()
@@ -53,7 +47,7 @@ struct TabsView: View {
                 
             //MARK: - PROFILEVIEW
             NavigationView {
-                ProfileView2(name: userData.name, username: userData.username, email: userData.email, image: userData.image!)
+                ProfileView2()
             }
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")
@@ -69,9 +63,8 @@ struct TabsView: View {
 //MARK: - PREVIEW
 struct TabsView_Previews: PreviewProvider {
     static var previews: some View {
-        let userData = ViewModel()
-        return TabsView().environmentObject(userData)
+        return TabsView()
             .preferredColorScheme(.dark)
-        
+            .environmentObject(AuthenticationViewModel())
     }
 }

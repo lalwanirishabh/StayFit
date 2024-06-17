@@ -15,7 +15,6 @@ import FirebaseStorage
 struct ChangeMeasurmentsView: View {
     
     @State private var navigateToAddDetailsView = false
-    @EnvironmentObject var userData : ViewModel
     @State var weight: Double = 0 // initialize to 0
     @State var height: Double = 0 // initialize to 0
     
@@ -60,8 +59,8 @@ struct ChangeMeasurmentsView: View {
                     .padding()
 
                     Button(action: {
-                        userData.weight = weight
-                        userData.height = height
+                        UserModel.instance.weight = weight
+                        UserModel.instance.height = height
                         
                         navigateToAddDetailsView.toggle()
                     }) {
@@ -80,8 +79,8 @@ struct ChangeMeasurmentsView: View {
     }
     
     func sendDatatoCloud(){
-        let ref1 = Database.database().reference(withPath: "users/\(userData.username)/weight")
-        ref1.setValue(userData.weight) { (error, ref1) in
+        let ref1 = Database.database().reference(withPath: "users/\(UserModel.instance.username)/weight")
+        ref1.setValue(UserModel.instance.weight) { (error, ref1) in
           if let error = error {
             print("Error writing to database: \(error.localizedDescription)")
           } else {
@@ -89,8 +88,8 @@ struct ChangeMeasurmentsView: View {
           }
         }
         
-        let ref2 = Database.database().reference(withPath: "users/\(userData.username)/height")
-        ref2.setValue(userData.height) { (error, ref1) in
+        let ref2 = Database.database().reference(withPath: "users/\(UserModel.instance.username)/height")
+        ref2.setValue(UserModel.instance.height) { (error, ref1) in
           if let error = error {
             print("Error writing to database: \(error.localizedDescription)")
           } else {

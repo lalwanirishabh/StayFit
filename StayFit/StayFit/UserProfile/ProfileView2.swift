@@ -15,59 +15,50 @@ import URLImage
 import FirebaseStorage
 
 struct ProfileView2: View {
-    
     //MARK: - VARIABLES
-    let name : String
-    let username : String
-    let email : String
-    let image : UIImage
-    
-    @EnvironmentObject var userData : ViewModel
     @State private var navigateToSignUpView = false
     let today = Date()
-    
     //MARK: - BODY
     var body: some View {
         VStack{
-            
             Spacer()
-            
             //MARK: - PROFILEIMAGE&NAME
-            Image(uiImage : image)
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                        .shadow(radius: 7)
-            
-            Text(name)
+            Image(uiImage : UserModel.instance.image ?? UIImage())
+                .resizable()
+                .frame(width: 100, height: 100)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                .shadow(radius: 7)
+            Text(UserModel.instance.name)
                 .font(.title)
                 .padding(.top)
-            
-            Text("@\(username)")
-                        .font(.title2)
-            
-            Spacer()
-            
-            
+            Text("@\(UserModel.instance.username)")
+                .font(.title2)
             //MARK: - LOGOUTBUTTON
             Button(action: {
-                
-                userData.username = ""
-                userData.name = ""
-                userData.weight = 0.0
-                userData.height = 0.0
-                userData.image = UIImage()
-                userData.dob = Date()
-                userData.gender = ""
-                userData.email = ""
-                userData.Steps = 0
-                userData.distance = 0.0
-                userData.calories = 0
-                userData.isUserLoggedIn = false
-                
+                UserModel.instance.uid = ""
+                UserModel.instance.username = ""
+                UserModel.instance.weight = 0.0
+                UserModel.instance.height = 0.0
+                UserModel.instance.name = ""
+                UserModel.instance.image = UIImage()
+                UserModel.instance.dob = Date()
+                UserModel.instance.gender = ""
+                UserModel.instance.email = ""
+                UserModel.instance.Steps = 0
+                UserModel.instance.distance = 0.0
+                UserModel.instance.calories = 0
+                UserModel.instance.imageUrl = ""
+                UserModel.instance.dailyStepsTarget = 5000
+                UserModel.instance.phoneNumber = ""
+                UserDefaults.standard.set(false, forKey: UserDefaultKeys.isLoggedIn)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.uid)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.username)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.name)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.gender)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.profileImageURL)
+                UserDefaults.standard.set("", forKey: UserDefaultKeys.UserModel.email)
                 navigateToSignUpView.toggle()
-                
             }) {
                 Text("LogOut")
                     .foregroundColor(.white)
@@ -93,11 +84,11 @@ struct ProfileView2: View {
                 Button(action: {
                     let ref = Database.database().reference()
                     let userRef = ref.child("users")
-                    let newUserRef = userRef.child("\(userData.username)\(datetoString(date: today))")
+                    let newUserRef = userRef.child("\(UserModel.instance.username)\(datetoString(date: today))")
 
-                    let usermodel = ["steps": userData.Steps ,
-                                     "distance": userData.distance ,
-                                     "calories": userData.calories
+                    let usermodel = ["steps": UserModel.instance.Steps ,
+                                     "distance": UserModel.instance.distance ,
+                                     "calories": UserModel.instance.calories
                                     ] as [String : Any]
                     newUserRef.setValue(usermodel)
                     
@@ -132,7 +123,6 @@ struct ProfileView2: View {
 //MARK: - PREVIEW
 struct ProfileView2_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView2(name: "Rishabh" , username: "_lalwanirishabh" , email: "rishabhlalwani1048@gmail.com", image: UIImage(named: "character-2")!)
-            .preferredColorScheme(.dark)
+        ProfileView2()
     }
 }

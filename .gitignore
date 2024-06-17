@@ -1,0 +1,48 @@
+# Xcode Project
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
+**/.swiftpm/xcode/xcuserdata/
+**/*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+**/*.xcworkspace/xcshareddata/*.xccheckout
+**/*.xcworkspace/xcshareddata/*.xcscmblueprint
+**/*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+**/*.playground/**/timeline.xctimeline
+.idea/
+# Ignore the Package.resolved file as this is generated on every build
+Stayfit.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+Stayfit.xcodeproj/project.xcworkspace/xcuserdata
+
+# Build
+Scripts/build/
+build/
+DerivedData/
+*.ipa
+
+# Carthage
+Carthage/
+
+# CocoaPods
+Pods/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/sign&cert
+
+# CSV
+*.orig
+.svn
+
+# Other
+*~
+.DS_Store
+*.swp
+*.save
+._*
+*.bak
+
+build/
+.secret-*
+**.sample

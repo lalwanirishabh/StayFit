@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9067A0A2BF8E20000A5EE94 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9067A092BF8E20000A5EE94 /* UserDefaultKeys.swift */; };
+		B9067A102BF8E3DD00A5EE94 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9067A0F2BF8E3DD00A5EE94 /* Application.swift */; };
+		B9067A122BF8E41700A5EE94 /* GoogleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9067A112BF8E41700A5EE94 /* GoogleSignInView.swift */; };
+		B9067A142BF8E43100A5EE94 /* GoogleSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9067A132BF8E43100A5EE94 /* GoogleSignInViewModel.swift */; };
+		B9067A1A2BF918E000A5EE94 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A192BF918E000A5EE94 /* FirebaseAuth */; };
+		B9067A1C2BF918E000A5EE94 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A1B2BF918E000A5EE94 /* FirebaseDatabase */; };
+		B9067A1E2BF918E000A5EE94 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A1D2BF918E000A5EE94 /* FirebaseDatabaseSwift */; };
+		B9067A202BF918E000A5EE94 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A1F2BF918E000A5EE94 /* FirebaseFirestore */; };
+		B9067A222BF918E000A5EE94 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A212BF918E000A5EE94 /* FirebaseFirestoreCombine-Community */; };
+		B9067A242BF918E000A5EE94 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A232BF918E000A5EE94 /* FirebaseStorage */; };
+		B9067A272BF91A3300A5EE94 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A262BF91A3300A5EE94 /* GoogleSignIn */; };
+		B9067A292BF91A3300A5EE94 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9067A282BF91A3300A5EE94 /* GoogleSignInSwift */; };
+		B9067A2B2BF91D4300A5EE94 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9067A2A2BF91D4300A5EE94 /* Date+Extension.swift */; };
+		B92479F12BFA357000AF1CAA /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479F02BFA357000AF1CAA /* AuthenticationViewModel.swift */; };
+		B92479F32BFA39DA00AF1CAA /* SignUpWithMobileNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479F22BFA39DA00AF1CAA /* SignUpWithMobileNumberView.swift */; };
+		B92479F62BFA3AB100AF1CAA /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479F52BFA3AB100AF1CAA /* Countries.swift */; };
+		B92479F82BFA3BDE00AF1CAA /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479F72BFA3BDE00AF1CAA /* Color+Extension.swift */; };
+		B92479FB2BFA3D1800AF1CAA /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479FA2BFA3D1800AF1CAA /* OTPView.swift */; };
+		B92479FD2BFA3E8E00AF1CAA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92479FC2BFA3E8E00AF1CAA /* String+Extension.swift */; };
 		B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398BD29DB3C75005A71BF /* StayFitApp.swift */; };
 		B95398C029DB3C75005A71BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398BF29DB3C75005A71BF /* ContentView.swift */; };
 		B95398C229DB3C77005A71BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95398C129DB3C77005A71BF /* Assets.xcassets */; };
 		B95398C529DB3C77005A71BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95398C429DB3C77005A71BF /* Preview Assets.xcassets */; };
 		B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398CE29DB3E9B005A71BF /* SignUpView.swift */; };
-		B95398D229DB42E0005A71BF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B95398D129DB42E0005A71BF /* FirebaseAuth */; };
-		B95398D429DB42E0005A71BF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B95398D329DB42E0005A71BF /* FirebaseFirestore */; };
-		B95398D629DB443F005A71BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B95398D529DB443F005A71BF /* GoogleService-Info.plist */; };
 		B95398D829DB48EC005A71BF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398D729DB48EC005A71BF /* LogInView.swift */; };
 		B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398D929DB52C8005A71BF /* AddDetailsView.swift */; };
-		B95398DD29DB69B0005A71BF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B95398DC29DB69B0005A71BF /* FirebaseDatabase */; };
-		B95398DF29DB69B0005A71BF /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B95398DE29DB69B0005A71BF /* FirebaseDatabaseSwift */; };
 		B95398E429DB709D005A71BF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398E329DB709D005A71BF /* ViewModel.swift */; };
 		B95398E829DBBAD9005A71BF /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398E729DBBAD9005A71BF /* HealthStore.swift */; };
 		B95398F029DBC2AD005A71BF /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398EF29DBC2AD005A71BF /* Step.swift */; };
-		B95398F829DBE853005A71BF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F729DBE853005A71BF /* FirebaseStorage */; };
-		B95398FA29DBE854005A71BF /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = B95398F929DBE854005A71BF /* FirebaseStorageCombine-Community */; };
 		B95398FE29DBFEB6005A71BF /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95398FD29DBFEB6005A71BF /* TabsView.swift */; };
 		B953990229DC191E005A71BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953990129DC191E005A71BF /* HomeView.swift */; };
 		B953990629DC4392005A71BF /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = B953990529DC4392005A71BF /* URLImage */; };
@@ -45,16 +57,28 @@
 		B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A229DDCF280023D8CC /* ProfileView2.swift */; };
 		B9DB14A929DDE5370023D8CC /* DoctorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14A829DDE5370023D8CC /* DoctorsView.swift */; };
 		B9DB14AB29DDEC900023D8CC /* DoctorSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */; };
+		B9F962942BFCCAA900D56CE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9F962932BFCCAA900D56CE5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9067A092BF8E20000A5EE94 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		B9067A0F2BF8E3DD00A5EE94 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B9067A112BF8E41700A5EE94 /* GoogleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInView.swift; sourceTree = "<group>"; };
+		B9067A132BF8E43100A5EE94 /* GoogleSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewModel.swift; sourceTree = "<group>"; };
+		B9067A2A2BF91D4300A5EE94 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B92479EE2BFA2BCB00AF1CAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B92479F02BFA357000AF1CAA /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B92479F22BFA39DA00AF1CAA /* SignUpWithMobileNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithMobileNumberView.swift; sourceTree = "<group>"; };
+		B92479F52BFA3AB100AF1CAA /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		B92479F72BFA3BDE00AF1CAA /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		B92479FA2BFA3D1800AF1CAA /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		B92479FC2BFA3E8E00AF1CAA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B95398BA29DB3C75005A71BF /* StayFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StayFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95398BD29DB3C75005A71BF /* StayFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayFitApp.swift; sourceTree = "<group>"; };
 		B95398BF29DB3C75005A71BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B95398C129DB3C77005A71BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B95398C429DB3C77005A71BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B95398CE29DB3E9B005A71BF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		B95398D529DB443F005A71BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B95398D729DB48EC005A71BF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		B95398D929DB52C8005A71BF /* AddDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsView.swift; sourceTree = "<group>"; };
 		B95398E329DB709D005A71BF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -80,6 +104,7 @@
 		B9DB14A229DDCF280023D8CC /* ProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView2.swift; sourceTree = "<group>"; };
 		B9DB14A829DDE5370023D8CC /* DoctorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsView.swift; sourceTree = "<group>"; };
 		B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSubView.swift; sourceTree = "<group>"; };
+		B9F962932BFCCAA900D56CE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,26 +112,208 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9067A1E2BF918E000A5EE94 /* FirebaseDatabaseSwift in Frameworks */,
 				B953990829DC4392005A71BF /* URLImageStore in Frameworks */,
-				B95398DF29DB69B0005A71BF /* FirebaseDatabaseSwift in Frameworks */,
-				B95398DD29DB69B0005A71BF /* FirebaseDatabase in Frameworks */,
-				B95398D229DB42E0005A71BF /* FirebaseAuth in Frameworks */,
-				B95398F829DBE853005A71BF /* FirebaseStorage in Frameworks */,
+				B9067A1A2BF918E000A5EE94 /* FirebaseAuth in Frameworks */,
+				B9067A1C2BF918E000A5EE94 /* FirebaseDatabase in Frameworks */,
 				B953990629DC4392005A71BF /* URLImage in Frameworks */,
-				B95398FA29DBE854005A71BF /* FirebaseStorageCombine-Community in Frameworks */,
-				B95398D429DB42E0005A71BF /* FirebaseFirestore in Frameworks */,
+				B9067A292BF91A3300A5EE94 /* GoogleSignInSwift in Frameworks */,
+				B9067A242BF918E000A5EE94 /* FirebaseStorage in Frameworks */,
+				B9067A202BF918E000A5EE94 /* FirebaseFirestore in Frameworks */,
+				B9067A222BF918E000A5EE94 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				B9067A272BF91A3300A5EE94 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9067A002BF8E0E100A5EE94 /* Browse */ = {
+			isa = PBXGroup;
+			children = (
+				B9DB14A829DDE5370023D8CC /* DoctorsView.swift */,
+				B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */,
+				B953991529DC9391005A71BF /* CircleGroupView.swift */,
+				B953990929DC4C13005A71BF /* BrowseView.swift */,
+				B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */,
+				B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */,
+				B953991B29DC9CD0005A71BF /* RecipesView.swift */,
+				B953991729DC965C005A71BF /* BMIView.swift */,
+				B953990B29DC8D19005A71BF /* MeditationView.swift */,
+				B953991329DC8F07005A71BF /* SelectMeditationView.swift */,
+			);
+			path = Browse;
+			sourceTree = "<group>";
+		};
+		B9067A012BF8E12A00A5EE94 /* Applicaton */ = {
+			isa = PBXGroup;
+			children = (
+				B95398BD29DB3C75005A71BF /* StayFitApp.swift */,
+				B9D6DACF29DEE64A002A65F6 /* LaunchScreen.storyboard */,
+				B9067A0F2BF8E3DD00A5EE94 /* Application.swift */,
+			);
+			path = Applicaton;
+			sourceTree = "<group>";
+		};
+		B9067A022BF8E13D00A5EE94 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B9DB14A229DDCF280023D8CC /* ProfileView2.swift */,
+				B9067A0B2BF8E22700A5EE94 /* Model */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		B9067A032BF8E16A00A5EE94 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B953991D29DD45B2005A71BF /* FeedView.swift */,
+				B953991F29DD476B005A71BF /* PostView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		B9067A042BF8E18300A5EE94 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B953990129DC191E005A71BF /* HomeView.swift */,
+				B9067A0D2BF8E33000A5EE94 /* Model */,
+				B9067A0C2BF8E31A00A5EE94 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B9067A052BF8E19100A5EE94 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B95398C129DB3C77005A71BF /* Assets.xcassets */,
+				B9067A0E2BF8E36300A5EE94 /* AudioFiles */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B9067A062BF8E1A200A5EE94 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B92479F42BFA3A9900AF1CAA /* Model */,
+				B92479EF2BFA355D00AF1CAA /* ViewModel */,
+				B92479F92BFA3CDD00AF1CAA /* Views */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B9067A072BF8E1B100A5EE94 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B9F962932BFCCAA900D56CE5 /* GoogleService-Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B9067A082BF8E1C500A5EE94 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				B9067A2A2BF91D4300A5EE94 /* Date+Extension.swift */,
+				B92479F72BFA3BDE00AF1CAA /* Color+Extension.swift */,
+				B92479FC2BFA3E8E00AF1CAA /* String+Extension.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		B9067A0B2BF8E22700A5EE94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B95398E329DB709D005A71BF /* ViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9067A0C2BF8E31A00A5EE94 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B95398E729DBBAD9005A71BF /* HealthStore.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B9067A0D2BF8E33000A5EE94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B95398EF29DBC2AD005A71BF /* Step.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9067A0E2BF8E36300A5EE94 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B953990E29DC8DE4005A71BF /* med1.mp3 */,
+				B953990D29DC8DE3005A71BF /* med3.mp3 */,
+				B953990F29DC8DE5005A71BF /* med2.mp3 */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+		B9067A182BF918E000A5EE94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B92479EF2BFA355D00AF1CAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B9067A132BF8E43100A5EE94 /* GoogleSignInViewModel.swift */,
+				B92479F02BFA357000AF1CAA /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B92479F42BFA3A9900AF1CAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B92479F52BFA3AB100AF1CAA /* Countries.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B92479F92BFA3CDD00AF1CAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B92479F22BFA39DA00AF1CAA /* SignUpWithMobileNumberView.swift */,
+				B95398BF29DB3C75005A71BF /* ContentView.swift */,
+				B95398CE29DB3E9B005A71BF /* SignUpView.swift */,
+				B95398D729DB48EC005A71BF /* LogInView.swift */,
+				B95398D929DB52C8005A71BF /* AddDetailsView.swift */,
+				B95398FD29DBFEB6005A71BF /* TabsView.swift */,
+				B9067A112BF8E41700A5EE94 /* GoogleSignInView.swift */,
+				B92479FA2BFA3D1800AF1CAA /* OTPView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B92C13C92C19E49900775A58 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B92C13CA2C19E4A100775A58 /* ViewModel */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B92C13CA2C19E4A100775A58 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B95398B129DB3C75005A71BF = {
 			isa = PBXGroup;
 			children = (
 				B95398BC29DB3C75005A71BF /* StayFit */,
 				B95398BB29DB3C75005A71BF /* Products */,
-				B95398DB29DB69B0005A71BF /* Frameworks */,
+				B9067A182BF918E000A5EE94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,12 +328,21 @@
 		B95398BC29DB3C75005A71BF /* StayFit */ = {
 			isa = PBXGroup;
 			children = (
+				B92479EE2BFA2BCB00AF1CAA /* Info.plist */,
+				B9067A092BF8E20000A5EE94 /* UserDefaultKeys.swift */,
 				B953990329DC2D48005A71BF /* StayFit.entitlements */,
-				B95398E029DB6F6A005A71BF /* Model */,
-				B95398C129DB3C77005A71BF /* Assets.xcassets */,
-				B95398CB29DB3E42005A71BF /* Views */,
+				B9067A022BF8E13D00A5EE94 /* UserProfile */,
+				B9067A002BF8E0E100A5EE94 /* Browse */,
+				B9067A032BF8E16A00A5EE94 /* Feed */,
+				B9067A042BF8E18300A5EE94 /* Home */,
+				B9067A052BF8E19100A5EE94 /* Resources */,
+				B9067A062BF8E1A200A5EE94 /* Onboarding */,
+				B9067A012BF8E12A00A5EE94 /* Applicaton */,
+				B9067A072BF8E1B100A5EE94 /* SupportingFiles */,
 				B95398C329DB3C77005A71BF /* Preview Content */,
-				B95398D529DB443F005A71BF /* GoogleService-Info.plist */,
+				B9067A082BF8E1C500A5EE94 /* Extentions */,
+				B95398DB29DB69B0005A71BF /* Frameworks */,
+				B92C13C92C19E49900775A58 /* General */,
 			);
 			path = StayFit;
 			sourceTree = "<group>";
@@ -139,68 +355,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B95398CB29DB3E42005A71BF /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B95398CD29DB3E58005A71BF /* Screens */,
-				B95398CC29DB3E4E005A71BF /* SubViews */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B95398CC29DB3E4E005A71BF /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				B953991529DC9391005A71BF /* CircleGroupView.swift */,
-				B953991F29DD476B005A71BF /* PostView.swift */,
-				B9DB14AA29DDEC900023D8CC /* DoctorSubView.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
-		B95398CD29DB3E58005A71BF /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				B95398BD29DB3C75005A71BF /* StayFitApp.swift */,
-				B95398BF29DB3C75005A71BF /* ContentView.swift */,
-				B95398CE29DB3E9B005A71BF /* SignUpView.swift */,
-				B95398D729DB48EC005A71BF /* LogInView.swift */,
-				B95398D929DB52C8005A71BF /* AddDetailsView.swift */,
-				B95398FD29DBFEB6005A71BF /* TabsView.swift */,
-				B953990129DC191E005A71BF /* HomeView.swift */,
-				B953991D29DD45B2005A71BF /* FeedView.swift */,
-				B953990929DC4C13005A71BF /* BrowseView.swift */,
-				B9DB14A229DDCF280023D8CC /* ProfileView2.swift */,
-				B953991329DC8F07005A71BF /* SelectMeditationView.swift */,
-				B953990B29DC8D19005A71BF /* MeditationView.swift */,
-				B953991729DC965C005A71BF /* BMIView.swift */,
-				B953991929DC9C9C005A71BF /* ExerciseRoutineView.swift */,
-				B953991B29DC9CD0005A71BF /* RecipesView.swift */,
-				B957B37429DDBB87008C23A6 /* ChangeMeasurments.swift */,
-				B9DB14A829DDE5370023D8CC /* DoctorsView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		B95398DB29DB69B0005A71BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B95398E029DB6F6A005A71BF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B953990E29DC8DE4005A71BF /* med1.mp3 */,
-				B953990F29DC8DE5005A71BF /* med2.mp3 */,
-				B953990D29DC8DE3005A71BF /* med3.mp3 */,
-				B95398E329DB709D005A71BF /* ViewModel.swift */,
-				B95398E729DBBAD9005A71BF /* HealthStore.swift */,
-				B95398EF29DBC2AD005A71BF /* Step.swift */,
-				B9D6DACF29DEE64A002A65F6 /* LaunchScreen.storyboard */,
-			);
-			path = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,14 +380,16 @@
 			);
 			name = StayFit;
 			packageProductDependencies = (
-				B95398D129DB42E0005A71BF /* FirebaseAuth */,
-				B95398D329DB42E0005A71BF /* FirebaseFirestore */,
-				B95398DC29DB69B0005A71BF /* FirebaseDatabase */,
-				B95398DE29DB69B0005A71BF /* FirebaseDatabaseSwift */,
-				B95398F729DBE853005A71BF /* FirebaseStorage */,
-				B95398F929DBE854005A71BF /* FirebaseStorageCombine-Community */,
 				B953990529DC4392005A71BF /* URLImage */,
 				B953990729DC4392005A71BF /* URLImageStore */,
+				B9067A192BF918E000A5EE94 /* FirebaseAuth */,
+				B9067A1B2BF918E000A5EE94 /* FirebaseDatabase */,
+				B9067A1D2BF918E000A5EE94 /* FirebaseDatabaseSwift */,
+				B9067A1F2BF918E000A5EE94 /* FirebaseFirestore */,
+				B9067A212BF918E000A5EE94 /* FirebaseFirestoreCombine-Community */,
+				B9067A232BF918E000A5EE94 /* FirebaseStorage */,
+				B9067A262BF91A3300A5EE94 /* GoogleSignIn */,
+				B9067A282BF91A3300A5EE94 /* GoogleSignInSwift */,
 			);
 			productName = StayFit;
 			productReference = B95398BA29DB3C75005A71BF /* StayFit.app */;
@@ -258,8 +420,9 @@
 			);
 			mainGroup = B95398B129DB3C75005A71BF;
 			packageReferences = (
-				B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B953990429DC4391005A71BF /* XCRemoteSwiftPackageReference "url-image" */,
+				B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B9067A252BF91A3200A5EE94 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = B95398BB29DB3C75005A71BF /* Products */;
 			projectDirPath = "";
@@ -280,8 +443,8 @@
 				B953991229DC8DE5005A71BF /* med2.mp3 in Resources */,
 				B95398C229DB3C77005A71BF /* Assets.xcassets in Resources */,
 				B9D6DAD029DEE64A002A65F6 /* LaunchScreen.storyboard in Resources */,
-				B95398D629DB443F005A71BF /* GoogleService-Info.plist in Resources */,
 				B953991029DC8DE5005A71BF /* med3.mp3 in Resources */,
+				B9F962942BFCCAA900D56CE5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,12 +459,20 @@
 				B95398F029DBC2AD005A71BF /* Step.swift in Sources */,
 				B953990229DC191E005A71BF /* HomeView.swift in Sources */,
 				B953990C29DC8D19005A71BF /* MeditationView.swift in Sources */,
+				B92479F32BFA39DA00AF1CAA /* SignUpWithMobileNumberView.swift in Sources */,
 				B957B37529DDBB87008C23A6 /* ChangeMeasurments.swift in Sources */,
 				B9DB14AB29DDEC900023D8CC /* DoctorSubView.swift in Sources */,
 				B95398DA29DB52C8005A71BF /* AddDetailsView.swift in Sources */,
+				B92479FD2BFA3E8E00AF1CAA /* String+Extension.swift in Sources */,
 				B953992029DD476B005A71BF /* PostView.swift in Sources */,
+				B9067A0A2BF8E20000A5EE94 /* UserDefaultKeys.swift in Sources */,
+				B9067A122BF8E41700A5EE94 /* GoogleSignInView.swift in Sources */,
+				B92479FB2BFA3D1800AF1CAA /* OTPView.swift in Sources */,
+				B92479F12BFA357000AF1CAA /* AuthenticationViewModel.swift in Sources */,
 				B953991C29DC9CD0005A71BF /* RecipesView.swift in Sources */,
+				B9067A102BF8E3DD00A5EE94 /* Application.swift in Sources */,
 				B953990A29DC4C13005A71BF /* BrowseView.swift in Sources */,
+				B9067A142BF8E43100A5EE94 /* GoogleSignInViewModel.swift in Sources */,
 				B953991A29DC9C9C005A71BF /* ExerciseRoutineView.swift in Sources */,
 				B95398C029DB3C75005A71BF /* ContentView.swift in Sources */,
 				B95398CF29DB3E9B005A71BF /* SignUpView.swift in Sources */,
@@ -309,10 +480,13 @@
 				B953991629DC9391005A71BF /* CircleGroupView.swift in Sources */,
 				B95398D829DB48EC005A71BF /* LogInView.swift in Sources */,
 				B95398E429DB709D005A71BF /* ViewModel.swift in Sources */,
+				B92479F82BFA3BDE00AF1CAA /* Color+Extension.swift in Sources */,
 				B95398E829DBBAD9005A71BF /* HealthStore.swift in Sources */,
 				B953991829DC965C005A71BF /* BMIView.swift in Sources */,
+				B92479F62BFA3AB100AF1CAA /* Countries.swift in Sources */,
 				B953991429DC8F07005A71BF /* SelectMeditationView.swift in Sources */,
 				B9DB14A329DDCF280023D8CC /* ProfileView2.swift in Sources */,
+				B9067A2B2BF91D4300A5EE94 /* Date+Extension.swift in Sources */,
 				B9DB14A929DDE5370023D8CC /* DoctorsView.swift in Sources */,
 				B95398BE29DB3C75005A71BF /* StayFitApp.swift in Sources */,
 			);
@@ -371,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -425,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -448,6 +622,7 @@
 				DEVELOPMENT_TEAM = M46DPRX7BA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StayFit/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -456,7 +631,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +658,7 @@
 				DEVELOPMENT_TEAM = M46DPRX7BA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StayFit/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -491,7 +667,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,7 +731,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -578,6 +754,7 @@
 				DEVELOPMENT_TEAM = M46DPRX7BA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StayFit/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires to access Health Data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -586,7 +763,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,12 +803,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 10.26.0;
+			};
+		};
+		B9067A252BF91A3200A5EE94 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
 			};
 		};
 		B953990429DC4391005A71BF /* XCRemoteSwiftPackageReference "url-image" */ = {
@@ -645,35 +830,45 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B95398D129DB42E0005A71BF /* FirebaseAuth */ = {
+		B9067A192BF918E000A5EE94 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		B95398D329DB42E0005A71BF /* FirebaseFirestore */ = {
+		B9067A1B2BF918E000A5EE94 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		B95398DC29DB69B0005A71BF /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		B95398DE29DB69B0005A71BF /* FirebaseDatabaseSwift */ = {
+		B9067A1D2BF918E000A5EE94 /* FirebaseDatabaseSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
 		};
-		B95398F729DBE853005A71BF /* FirebaseStorage */ = {
+		B9067A1F2BF918E000A5EE94 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B9067A212BF918E000A5EE94 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		B9067A232BF918E000A5EE94 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9067A172BF9180500A5EE94 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		B95398F929DBE854005A71BF /* FirebaseStorageCombine-Community */ = {
+		B9067A262BF91A3300A5EE94 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95398D029DB42E0005A71BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseStorageCombine-Community";
+			package = B9067A252BF91A3200A5EE94 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		B9067A282BF91A3300A5EE94 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9067A252BF91A3200A5EE94 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		B953990529DC4392005A71BF /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
